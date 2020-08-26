@@ -1,5 +1,15 @@
 let articles = [] 
 
+
+const eventHub = document.querySelector(".container")
+
+const dispatchStateChangeEvent = () => {
+    const articleStateChangedEvent = new CustomEvent("articleStateChanged")
+
+    eventHub.dispatchEvent(articleStateChangedEvent)
+}
+
+
 export const useArticles = () => {
     articles.slice()
 }
