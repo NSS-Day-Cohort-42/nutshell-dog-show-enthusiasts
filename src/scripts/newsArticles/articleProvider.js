@@ -15,7 +15,7 @@ export const useArticles = () => {
 }
 
 export const getArticles = () => {
-    return fetch('http://localhost:8088/database')
+    return fetch('http://localhost:8088/article')
         .then(response => response.json())
         .then(parsedArticles => {
             articles = parsedArticles
@@ -23,7 +23,7 @@ export const getArticles = () => {
 }
 
 export const saveArticle = (article) => {
-    return fetch('http://localhost:8088/database', {
+    return fetch('http://localhost:8088/article', {
         method: "POST", 
         headers: {
             "Content-Type": "application/json" 
