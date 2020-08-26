@@ -21,3 +21,15 @@ export const getArticles = () => {
             articles = parsedArticles
         })
 }
+
+export const saveArticle = (article) => {
+    return fetch('http://localhost:8088/database', {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(article)
+    })
+    .then(getArticles)
+    .then(dispatchStateChangeEvent) 
+}
