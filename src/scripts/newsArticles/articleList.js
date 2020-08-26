@@ -6,7 +6,7 @@ import { articleHTMLConverter } from "./articleHTMLConverter.js";
 export const articleList = () => { 
     getArticles()
     .then(() => { 
-        const allArticles = getArticles()
+        const allArticles = useArticles()
         render(allArticles)
     })
 }
