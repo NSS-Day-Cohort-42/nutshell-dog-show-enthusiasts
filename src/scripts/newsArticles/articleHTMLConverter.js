@@ -1,4 +1,4 @@
-export const noteHTMLConverter = (articleObject) => {
+export const articleHTMLConverter = (articleObject) => {
     return ` 
         <section class="article--dashboard">
             <div class="article__Title">Title: ${articleObject.title}</div> 
