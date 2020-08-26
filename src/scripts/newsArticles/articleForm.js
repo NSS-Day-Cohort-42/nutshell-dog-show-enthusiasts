@@ -1,6 +1,13 @@
 
 
+const contentTarget = document.querySelector(".article--container")
+const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("click", clickEvent => { 
+    if (clickEvent.target.id === "createArticle") {
+        
+    }
+})
 
 const render = () => {
     contentTarget.innerHTML = `
