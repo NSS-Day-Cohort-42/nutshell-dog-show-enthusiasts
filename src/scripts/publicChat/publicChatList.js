@@ -14,7 +14,11 @@ export const messageList = () => {
 }
 
 const render = (messageArr) => {
-    const allMessagesHtml = messageArr.map (
+    const messagesSorted = messageArr.sort((a, b) => {
+        return b.timestamp - a.timestamp
+    })
+    
+    const allMessagesHtml = messagesSorted.map (
         (currentmessage) => {
             return messagesHTMLConverter(currentmessage)
             }  
