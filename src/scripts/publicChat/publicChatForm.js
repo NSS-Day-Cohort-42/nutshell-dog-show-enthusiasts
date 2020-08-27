@@ -12,6 +12,29 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+eventHub.addEventListener("keypress", KeyPressEvent =>{
+    if(KeyPressEvent.charCode === 13) {
+        const messageText = document.querySelector("#message--Text")
+        const currentUser = sessionStorage.getItem("activeUser")
+        
+        if(messageText.value !== "") {
+
+            const newMessage = {
+                // Key/value pairs here
+                text: messageText.value,
+                timestamp: Date.now(), 
+                userId: parseInt(currentUser)             
+            }
+            saveMessage(newMessage)
+            messageList()
+        } else { 
+            window.alert("Write A Message")
+        }
+    }
+})
+
+
+
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__Message") {
 
