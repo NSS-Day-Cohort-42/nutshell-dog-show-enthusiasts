@@ -1,0 +1,27 @@
+.friends--container {
+    border: 1px solid dimgrey;
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+.friend__card {
+    display: flex;
+    flex-direction: row;
+}
+
+.button__addFriend,
+.button__startChat, 
+.button__deleteFriend {
+    box-shadow: 5px 0px 12px -12px #9fb4f2;
+    background-color:#7892c2;
+    border-radius:21px;
+    border:2px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    padding:9px 33px;
+    text-decoration:none;
+    text-shadow:-1px 2px 0px #283966;
+}
