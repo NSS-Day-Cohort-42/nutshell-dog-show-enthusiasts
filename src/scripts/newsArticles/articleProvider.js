@@ -15,7 +15,7 @@ export const useArticles = () => {
 }
 
 export const getArticles = () => {
-    return fetch('http://localhost:8088/article')
+    return fetch('http://localhost:8088/articles')
         .then(response => response.json())
         .then(parsedArticles => {
             articles = parsedArticles
@@ -23,7 +23,7 @@ export const getArticles = () => {
 }
 
 export const saveArticle = (article) => {
-    return fetch('http://localhost:8088/article', {
+    return fetch('http://localhost:8088/articles', {
         method: "POST", 
         headers: {
             "Content-Type": "application/json" 
@@ -37,7 +37,7 @@ export const saveArticle = (article) => {
 
 export const deleteArticle = (articleId) => {
     console.log("articleId:", articleId)
-    return fetch(`http://localhost:8088/article/${ articleId }`, {
+    return fetch(`http://localhost:8088/articles/${ articleId }`, {
         method: "DELETE"
     })
         .then(getArticles)

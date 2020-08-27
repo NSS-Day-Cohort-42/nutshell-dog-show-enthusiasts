@@ -9,15 +9,16 @@ const contentTarget = document.querySelector(".friends--list")
 const signedInUserId = 1
 
 const render = (users, allRelationships) => {
-    const htmlRepresentations = users.map(user => {
-        const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === signedInUserId)    //returns array of all friend objects for this userId
-        const friends = relationshipsForThisUser.map(friendObj => {                                                 //convert 
-            const matchingUserObj = users.find(user => user.userId === friendObj.friendUserId)
-            return matchingUserObj
-        })
-        return friendHTMLConverter(relationshipsForThisUser)
-    }).join("")
+    // htmlRepresentations = users.map(user => {
+    //     const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === signedInUserId)    //returns array of all friend objects for this userId
+    //     const friends = relationshipsForThisUser.map(friendObj => {                                                 //convert 
+    //         const matchingUserObj = users.find(user => user.userId === friendObj.friendUserId)
+    //         return matchingUserObj
+    //     })
+    //     return friendHTMLConverter(relationshipsForThisUser)
+    // }).join("")
     
+    let htmlRepresentations = ""
 
     contentTarget.innerHTML = `
         <h2>Friends</h2>
@@ -26,14 +27,6 @@ const render = (users, allRelationships) => {
             </article> 
     `
 }
-
-
-// const render = (currentUserId, allRelationships, allUsers) => {
-
-//     const relationshipsForThisUser = allRelationships.flter(relationship => relationship.userId === currentUserId)      //returns an array of all friend objects for current user
-//     // relationshipsForThisUser.map()
-//     console.log("console log relationshipsForThisUser >>", relationshipsForThisUser)
-// }
 
 
 
@@ -47,3 +40,9 @@ export const friendList = () => {
     })
 }
 
+
+
+// eventHub.addEventListener("friendStateChanged", () => {
+//     const newFriends = useFriends()
+//     renderNoteList(newFriends)
+// })
