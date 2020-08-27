@@ -10,8 +10,13 @@
     flex-direction: row;
 }
 
+.friends--list {
+    display: flex;
+    flex-direction: column; 
+    padding: 2rem;
+}
+
 .friends--addFriend {
-    border: 2px dotted red;
     padding: 2rem;
 }
 
