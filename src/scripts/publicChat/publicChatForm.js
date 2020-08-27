@@ -6,6 +6,12 @@ const contentTarget = document.querySelector(".chatForm")
 const eventHub = document.querySelector(".container")
 
 
+eventHub.addEventListener("click", clickEvent => { 
+    if (clickEvent.target.id === "create__Message") {
+        messageForm()
+    }
+})
+
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__Message") {
         console.log("Clicked saved Message")
@@ -30,7 +36,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 const render = () => {
     contentTarget.innerHTML = `
-        <input type="text" id ="message--Text" placeholder="Article Title" autofocus/> 
+        <input type="text" id ="message--Text" placeholder="What's on your mind?" autofocus/> 
         
         <button id="send__Message">Send</button> 
         <input type="hidden" id="messageId" name="messageId" value="">

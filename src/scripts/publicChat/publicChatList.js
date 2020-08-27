@@ -1,6 +1,8 @@
 import { getMessages, useMessages } from "./publicChatProvider.js"
+import { messagesHTMLConverter } from "./publicChatHTML.js"
 
-const contentTarget = document.querySelector(".messageForm")
+
+const contentTarget = document.querySelector(".chatForm")
 const eventHub = document.querySelector(".container")
 
 export const messageList = () => { 
@@ -15,7 +17,7 @@ export const messageList = () => {
 const render = (messageArr) => {
     const allMessagesHtml = messageArr.map (
         (currentmessage) => {
-            return articleHTMLConverter(currentmessage)
+            return messagesHTMLConverter(currentmessage)
             }  
         ).join("")
     contentTarget.innerHTML = allMessagesHtml
