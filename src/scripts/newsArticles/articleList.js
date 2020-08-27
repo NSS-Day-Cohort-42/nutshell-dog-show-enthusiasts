@@ -1,4 +1,4 @@
-import { useArticles, getArticles, deleteArticle } from "./articleProvider.js";
+import { useArticles, getArticles } from "./articleProvider.js";
 import { articleHTMLConverter } from "./articleHTMLConverter.js";
 
 const contentTarget = document.querySelector(".articleList")
