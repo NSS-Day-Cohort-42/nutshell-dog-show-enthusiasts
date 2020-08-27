@@ -18,7 +18,7 @@ export const useFriends = () => {
 // dispatch "friendStateChanged"
 export const dispatchFriendStateChange = () => {
     const customEvent = new CustomEvent ("friendStateChanged")
-    eventHub.dispatchEvent(customEvent)
+    eventHub.dispatchEvent(customEvent)    
 }
 
 

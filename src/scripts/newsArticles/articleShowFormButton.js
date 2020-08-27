@@ -2,10 +2,10 @@ const contentTarget = document.querySelector(".article--container")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
-    console.log("Article Button Clicked")
     if (clickEvent.target.id === "create__Article") { 
         const createArticleEvent = new CustomEvent("createArticle")
         eventHub.dispatchEvent(createArticleEvent)
+        console.log("Article Button Clicked")
     }
 })
 
