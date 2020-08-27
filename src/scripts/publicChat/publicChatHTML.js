@@ -1,8 +1,23 @@
+import { deleteMessages } from "./publicChatProvider.js";
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("delete--")) { 
+        const [prompt, messageId] = clickEvent.target.id.split("--")
+
+        deleteMessages(messageId)
+    }
+})
+
+
+
+
 export const messagesHTMLConverter = (messageObj) => {
     return `
     <section class="message--board">
         <div class="message__User">${ messageObj.userId }</div> 
-        <div class="message__Text">Synopsis: ${messageObj.content}</div> 
+        <div class="message__Text">${messageObj.text}</div> 
     
         <button id='delete--${ messageObj.id }'>Delete</button>
     </section>

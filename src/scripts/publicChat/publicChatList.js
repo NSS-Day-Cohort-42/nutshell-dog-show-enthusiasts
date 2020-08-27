@@ -21,3 +21,8 @@ const render = (messageArr) => {
         ).join("")
     contentTarget.innerHTML = allMessagesHtml
 }
+
+eventHub.addEventListener("messageStateChanged", CustomEvent => {
+    const deletedMessages = useMessages()
+    render(deletedMessages)
+})
