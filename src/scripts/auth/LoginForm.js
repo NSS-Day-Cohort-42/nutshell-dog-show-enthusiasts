@@ -19,7 +19,7 @@ eventHub.addEventListener("click", e => {
 
                     if (user.password === password) {
                         sessionStorage.setItem("activeUser", user.id)
-                        eventHub.dispatchEvent(new CustomEvent("userAuthenticated"))
+                        eventHub.dispatchEvent(new CustomEvent("userAuthenticated")) //this creates the new custom event and dispatches it, this event isn't defined. See Auth.js for event listener that defines it. 
                     }
                 }
             })
