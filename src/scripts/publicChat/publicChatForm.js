@@ -2,7 +2,7 @@ import { messageList } from "./publicChatList.js"
 import { saveMessage } from "./publicChatProvider.js"
 
 
-const contentTarget = document.querySelector(".chatForm")
+const contentTarget = document.querySelector(".publicChat--container")
 const eventHub = document.querySelector(".container")
 
 

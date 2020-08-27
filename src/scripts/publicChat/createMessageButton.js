@@ -1,4 +1,4 @@
-const contentTarget = document.querySelector(".chatForm")
+const contentTarget = document.querySelector(".createMessageButton")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
