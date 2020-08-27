@@ -22,7 +22,7 @@ eventHub.addEventListener("click", clickEvent => {
             saveArticle(newArticle)
             articleList()
         } else { 
-            window.alert("Fill in all the fields!!!")
+            window.alert("Write A Message")
         }
     }
 })
