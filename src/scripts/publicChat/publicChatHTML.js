@@ -1,4 +1,4 @@
-import { deleteMessages } from "./publicChatProvider.js";
+import { deleteMessages, getMessages, useMessages } from "./publicChatProvider.js";
 
 const eventHub = document.querySelector(".container")
 

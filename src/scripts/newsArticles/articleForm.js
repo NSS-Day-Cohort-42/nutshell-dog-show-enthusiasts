@@ -13,7 +13,6 @@ eventHub.addEventListener("click", clickEvent => {
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "save__Article") {
-        console.log("Clicked saved Article")
         const articleTitle = document.querySelector("#article--title")
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")

@@ -14,7 +14,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__Message") {
-        console.log("Clicked saved Message")
+
         const messageText = document.querySelector("#message--Text")
         const currentUser = sessionStorage.getItem("activeUser")
         
