@@ -9,8 +9,11 @@ export const taskHTMLCon = (task) => {
             <div class="task__content">Description :${task.description}</div>
             <div class="task__completionDate">Expected Completion: ${task.taskDate}</div>
             <button id="deleteTask--${task.id}">Delete</button>
+            <button id="editTask--${task.id}">Edit</button>
         </div>
     `
 }
+
+
 
 

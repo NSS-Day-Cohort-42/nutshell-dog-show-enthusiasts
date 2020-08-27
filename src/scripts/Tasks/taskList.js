@@ -90,3 +90,10 @@ eventHub.addEventListener("taskUpdatedStateChange", () => {
     tasks = useTasks()
     render()
 })
+
+// eventHub.addEventListener("click", clickEvent => {
+//     if(clickEvent.target.id.startsWith("editTask")) {
+//         const [pre, id] = clickEvent.target.id(split("--"))
+//         const edited = tasks.find(task => task.id === parseInt(id))
+//     }
+// })
