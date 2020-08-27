@@ -1,9 +1,11 @@
-import { eventsFormConverter } from "./Events/eventForm.js"
-
-import { formButton } from "./Events/eventForm.js"
-
+import { createArticleButton } from "./newsArticles/articleShowFormButton.js";
+import "./newsArticles/articleForm.js";
+import { formButton, eventsFormConverter } from "./Events/eventForm.js";
 
 export const Nutshell = () => {
-eventsFormConverter()
-formButton()
+    // Render all your UI components here
+    createArticleButton()
+    formButton()
+    eventsFormConverter()
+    // articleForm()
 }
