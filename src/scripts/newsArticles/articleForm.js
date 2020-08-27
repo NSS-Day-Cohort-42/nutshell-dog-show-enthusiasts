@@ -17,7 +17,9 @@ eventHub.addEventListener("click", clickEvent => {
         const articleTitle = document.querySelector("#article--title")
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")
-        console.log(articleTitle, articleSynopsis, articleURL)
+        const currentUser = sessionStorage.getItem("activeUser")
+        // console.log("currentUser:", currentUser)
+        // console.log(articleTitle, articleSynopsis, articleURL)
         if(articleTitle.value !== "" && articleSynopsis.value !== "" && articleURL.value !== "") {
 
             const newArticle = {
@@ -26,7 +28,7 @@ eventHub.addEventListener("click", clickEvent => {
                 synopsis: articleSynopsis.value,
                 url: articleURL.value,
                 timestamp: Date.now(), 
-                // userId:                     
+                userId: parseInt(currentUser)                    
             }
             saveArticle(newArticle)
             articleList()
