@@ -3,6 +3,8 @@ import {getTasks, useTasks, deleteTask, updateTask} from "./taskProvider.js"
 import {taskHTMLCon} from "./taskHTMLConverter.js"
 
 let tasks = []
+//the users isn't necessary at this stage for the task module, because the user.id is coming
+//from the sessionstorage
 let users = []
 
 const contentTarget = document.querySelector(".taskList")
@@ -35,38 +37,9 @@ eventHub.addEventListener("taskAddedStateChange", () => {
 })
 
 
-//this should update the completed boolean in the database and a render condition should be that
-//if completed === true then it does not render
-//working but adds object with id and completed
-// eventHub.addEventListener("click", clickEvent => {
-//     if(clickEvent.target.id.startsWith("taskCompletedChecked")) {
-//         const [pre, id] = clickEvent.target.id.split("--")
-//         const updated = tasks.filter(task => task.id === parseInt(id)).map(task => {
-//             return {
-//                 taskTitle : task.taskTitle,
-//                 description : task.description,
-//                 taskDate : task.taskDate,
-//                 userId : task.userId,
-//                 id : task.id,
-//                 completed : true
-//             }
-//         })
-//         const updatedObj = updated[0]
-        
-//         updateTask(updatedObj)
-        
-        
-//     } 
-        
-        
-        
-        
-        
-        
-// })
-
+//render filters based on active user and if the task completed is false, if true it has been
+//marked completed and will not render
 const render = () => {
-    
     const activeUser = sessionStorage.getItem("activeUser")
     let toDom = ""
     const html = tasks
@@ -83,14 +56,15 @@ const render = () => {
     
 }
 
-
-
+//listens for taskCompletedChecked to be click, when clicked, it grabs the id,
+//find the correct id, the updates the object with the original info except for the 
+//completed key which is changed to true and will not be rendered
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("taskCompletedChecked")) {
         const [pre, id] = clickEvent.target.id.split("--")
-        console.log(id)
+        
         const updated = tasks.find(task => task.id === parseInt(id))
-        console.log(updated)
+        
             const updatedObj = {
                 taskTitle : updated.taskTitle,
                 description : updated.description,
@@ -99,13 +73,8 @@ eventHub.addEventListener("click", clickEvent => {
                 id : updated.id,
                 completed : true
             }
-        console.log(updatedObj)
+        
             
-        
-        
-        
-        
-        
         updateTask(updatedObj)
         
     } 
