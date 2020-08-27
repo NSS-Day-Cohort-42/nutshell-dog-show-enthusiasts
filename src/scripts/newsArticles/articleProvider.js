@@ -11,7 +11,7 @@ const dispatchStateChangeEvent = () => {
 
 
 export const useArticles = () => {
-    articles.slice()
+    return articles.slice()
 }
 
 export const getArticles = () => {

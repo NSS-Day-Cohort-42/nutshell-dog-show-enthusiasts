@@ -1,4 +1,6 @@
 import { saveArticle } from "./articleProvider.js";
+import { articleList } from "./articleList.js";
+import { createArticleButton } from "./articleShowFormButton.js";
 
 const contentTarget = document.querySelector(".article--container")
 const eventHub = document.querySelector(".container")
@@ -10,9 +12,8 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 eventHub.addEventListener("click", clickEvent => {
-    console.log("Clicked saved Article")
     if (clickEvent.target.id === "save__Article") {
-
+        console.log("Clicked saved Article")
         const articleTitle = document.querySelector("#article--title")
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")
@@ -25,10 +26,10 @@ eventHub.addEventListener("click", clickEvent => {
                 synopsis: articleSynopsis.value,
                 url: articleURL.value,
                 timestamp: Date.now(), 
-                // userId:                    
+                // userId:                     
             }
             saveArticle(newArticle)
-            render()
+            articleList()
         } else { 
             window.alert("Fill in all the fields!!!")
         }

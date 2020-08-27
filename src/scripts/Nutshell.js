@@ -1,5 +1,5 @@
 import { createArticleButton } from "./newsArticles/articleShowFormButton.js";
-import { articleForm } from "./newsArticles/articleForm.js";
+import "./newsArticles/articleForm.js";
 
 export const Nutshell = () => {
     // Render all your UI components here
