@@ -19,24 +19,26 @@ contentTarget.addEventListener("click", event => {
 
         console.log("friendUsername value >>", friendUsername.value)
 
+        const friendUserObj = allUsers.find((user) => {
+            return friendUsername.value === user.username
+        })
+        console.log("friendUserObj >>", friendUserObj)
 
-        const friendUserId = friendUsername.value => {
-            allUsers.map()
+
+
         }
-             
         
 
-        
         const newFriend = {
             userId: parseInt(currentUser),
             friendUserId: friendUsername.value
-            // friendUserId: friendUsername.value
         }
         
-        saveFriend(newFriend)
+        // saveFriend(newFriend)
 
         console.log("save friend button clicked + friend saved to API >>") 
     }
+
     dispatchFriendStateChange()
 })
 
