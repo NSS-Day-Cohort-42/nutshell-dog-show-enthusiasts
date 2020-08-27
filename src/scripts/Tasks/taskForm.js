@@ -13,9 +13,10 @@ eventHub.addEventListener("taskFormClicked", ()=> {
 const render = () => {
     contentTarget.innerHTML = `
         <div name="taskCreationForm id="taskCreationForm">
-            <input type="text" id="taskName" />
-            <input type="text" id="taskDescription" />
-            <input type="date" id="taskExpectedCompletionDate">
+            <input type="text" id="taskName" placeholder="Task Name"/>
+            <input type="text" id="taskDescription" placeholder="Description" />
+            <label for="taskCompletion">Expected Completion :</label>
+            <input type="date" id="taskExpectedCompletionDate" name="taskCompletion">
             <button id="saveTask">Save Task</button>
         </div>
     `
