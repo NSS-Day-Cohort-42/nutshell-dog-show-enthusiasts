@@ -11,6 +11,11 @@ contentTarget.addEventListener("click", event => {
     }
 })
 
+
+eventHub.addEventListener("saveFriendClicked", () => {
+    addFriendButton()
+})
+
 export const addFriendButton = () => {
-    contentTarget.innerHTML = `<button id="addFriendButton">Add a Friend</button>`
+    contentTarget.innerHTML = `<button class="button__addFriend" id="addFriendButton">Add a Friend</button>`
 }

@@ -21,8 +21,9 @@
 }
 
 .button__addFriend,
-.button__startChat, 
-.button__deleteFriend {
+.button__saveFriend,
+.button__deleteFriend,
+.button__startChat {
     box-shadow: 5px 0px 12px -12px #9fb4f2;
     background-color:#7892c2;
     border-radius:21px;

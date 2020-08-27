@@ -3,6 +3,7 @@ import { dispatchFriendStateChange, saveFriend } from "./friendProvider.js";
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--addFriend")
+const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
 // hear "addFriendClicked" + render addFriendForm()
 eventHub.addEventListener("addFriendClicked", event => { 
@@ -13,34 +14,37 @@ eventHub.addEventListener("addFriendClicked", event => {
 // hear button click (from button with id "saveFriendButton")
 contentTarget.addEventListener("click", event => {
     if (event.target.id === "saveFriendButton") {
-
+        
         const friendUsername = document.querySelector("#addFriendForm--friendUsername")
-        const currentUser = sessionStorage.getItem("activeUser")
         const allUsers = useUsers()
         // console.log("friendUsername value >>", friendUsername.value)
 
         const friendUserObj = allUsers.find((user) => {
             return friendUsername.value === user.username
         }) 
-        console.log("friendUserObj >>", friendUserObj)
 
-                
+        
         if (friendUserObj === undefined ) {
             window.alert("The username you entered does not exist. Please try again. 😏")
         } 
         else {
-            const friendUserId = parseInt(friendUserObj.id)
-
+            const friendUserId = friendUserObj.id
+              
             const newFriend = {
-                userId: parseInt(currentUser),
+                userId: currentUserId,
                 friendUserId: friendUserId
-            }
+            }                        
             
-            saveFriend(newFriend)
+            if (friendUserId === currentUserId){
+                window.alert("Cannot add yourself as a friend. 😂")
+            }
+            else{
+                saveFriend(newFriend)      
+            }                        
         }
-        
-        console.log("save friend button clicked + friend saved to API >>") 
     }
+        
+    // console.log("save friend button clicked + friend saved to API >>") 
 
     dispatchFriendStateChange()
 })
@@ -49,11 +53,10 @@ contentTarget.addEventListener("click", event => {
 
 const render = () => {
     contentTarget.innerHTML = `
-        <form id="addFriendForm">
+        <section id="addFriendForm">
             <input type="text" id="addFriendForm--friendUsername" placeholder="friend username..."></input>                       
-        </form>
-
-        <button id="saveFriendButton">Save Friend</button>
+            <button class="button__saveFriend" id="saveFriendButton">Save Friend</button>
+        </section>
     `    
 }
 

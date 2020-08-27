@@ -1,4 +1,4 @@
-const contentTarget = document.querySelector(".article--container")
+const contentTarget = document.querySelector(".createArticleButton")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
