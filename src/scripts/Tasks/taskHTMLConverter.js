@@ -1,9 +1,10 @@
-export const taskHTMLCon = (task, user) => {
+const eventHub = document.querySelector(".container")
+
+export const taskHTMLCon = (task) => {
     return `
-        <div class="card__task" id="task--${task.id}>
+        <div class="card__task" id="task">
             <input type="checkbox" id="taskCompletedChecked" name="taskBox">
             <label for="taskBox">Completed</label>
-            
             <div class="task__title">${task.taskTitle}</div>
             <div class="task__content">${task.description}</div>
             <div class="task__completionDate">${task.taskDate}</div>
@@ -11,3 +12,5 @@ export const taskHTMLCon = (task, user) => {
         </div>
     `
 }
+
+

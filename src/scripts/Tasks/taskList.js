@@ -23,8 +23,8 @@ const render = () => {
         task => {
             
             const userTask = users.find(user => user.id === tasks.userId)
-            console.log(userTask)
-            const html = taskHTMLCon(task, userTask)
+            
+            const html = taskHTMLCon(task)
             
             return html
         }
@@ -45,4 +45,14 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("taskAddedStateChange", () => {
     tasks = useTasks()
     render()
+})
+
+
+//this should update the completed boolean in the database and a render condition should be that
+//if completed === true then it does not render
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id === "taskCompletedChecked") {
+        const hideTask = document.getElementById("task")
+        hideTask.remove()
+} 
 })
