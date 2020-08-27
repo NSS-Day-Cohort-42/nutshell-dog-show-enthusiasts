@@ -18,18 +18,20 @@ export const TaskList = () => {
         })
 }
 
-const render = () => {
-    contentTarget.innerHTML = tasks.map(
-        task => {
+// const render = () => {
+//     const activeUser = sessionStorage.getItem("activeUser")
+    
+//     contentTarget.innerHTML = tasks.map(
+//         task => {
             
-            const userTask = users.find(user => user.id === tasks.userId)
+//             const userTask = users.find(user => user.id === tasks.userId)
             
-            const html = taskHTMLCon(task)
+//             const html = taskHTMLCon(task)
             
-            return html
-        }
-    ).join("")
-}
+//             return html
+//         }
+//     ).join("")
+// }
 
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("deleteTask")) {
@@ -56,3 +58,16 @@ eventHub.addEventListener("click", clickEvent => {
         hideTask.remove()
 } 
 })
+
+const render = () => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const html = tasks
+        .filter(task => task.userId === parseInt(activeUser))
+        .map(task => taskHTMLCon(task)).join("")
+    contentTarget.innerHTML = `
+        <h2>Tasks</h2>
+        ${html}
+
+    `
+    
+}

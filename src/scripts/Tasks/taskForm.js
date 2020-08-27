@@ -31,15 +31,22 @@ eventHub.addEventListener("click", clickEvent => {
         const taskTitle = document.querySelector("#taskName")
         const taskDescription = document.querySelector("#taskDescription")
         const taskExpectedCompletion = document.querySelector("#taskExpectedCompletionDate")
+        const currentUser = sessionStorage.getItem("activeUser")
 
-        const newTask = {
-            taskTitle : taskTitle.value,
-            description : taskDescription.value,
-            taskDate : taskExpectedCompletion.value,
-            completed : false,
+        if(taskTitle.value !== "" && taskDescription.value !== "" && taskExpectedCompletion.value !== "") {
+
+            const newTask = {
+                taskTitle : taskTitle.value,
+                description : taskDescription.value,
+                taskDate : taskExpectedCompletion.value,
+                completed : false,
+                userId : parseInt(currentUser)
+            }
+            saveTask(newTask)
+            render()
+        } else {
+            window.alert("Please fill in all the fields, noob.")
         }
-        saveTask(newTask)
-        render()
     }
 })
 
