@@ -2,7 +2,7 @@ import { saveArticle } from "./articleProvider.js";
 import { articleList } from "./articleList.js";
 import { createArticleButton } from "./articleShowFormButton.js";
 
-const contentTarget = document.querySelector(".article--container")
+const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => { 

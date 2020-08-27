@@ -1,7 +1,7 @@
 import { useArticles, getArticles, deleteArticle } from "./articleProvider.js";
 import { articleHTMLConverter } from "./articleHTMLConverter.js";
 
-const contentTarget = document.querySelector(".article--container")
+const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
 
 export const articleList = () => { 
