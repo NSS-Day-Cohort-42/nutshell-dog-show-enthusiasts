@@ -21,17 +21,15 @@ contentTarget.addEventListener("click", event => {
 
         const friendUserObj = allUsers.find((user) => {
             return friendUsername.value === user.username
-        })
-        console.log("friendUserObj >>", friendUserObj)
+        }) 
+        // console.log("friendUserObj >>", friendUserObj)
 
 
-
-        }
-        
+        const friendUserId = parseInt(friendUserObj.id)
 
         const newFriend = {
             userId: parseInt(currentUser),
-            friendUserId: friendUsername.value
+            friendUserId: friendUserId
         }
         
         // saveFriend(newFriend)
