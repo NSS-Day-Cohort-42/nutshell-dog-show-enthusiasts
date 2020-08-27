@@ -1,3 +1,4 @@
+import { getUsers, useUsers } from "../Users/userProvider.js";
 import { dispatchFriendStateChange, saveFriend } from "./friendProvider.js";
 
 const eventHub = document.querySelector(".container")
@@ -8,17 +9,23 @@ eventHub.addEventListener("addFriendClicked", event => {
     addFriendForm()
 })
 
-// dispatch "saveFriendClicked" 
+// hear button click (from button with id "saveFriendButton")
 contentTarget.addEventListener("click", event => {
     if (event.target.id === "saveFriendButton") {
 
         const friendUsername = document.querySelector("#addFriendForm--friendUsername")
         const currentUser = sessionStorage.getItem("activeUser")
+        const allUsers = useUsers()
+              
+        
+        console.log("friendUsername value >>", friendUsername.value)
 
+        
         const newFriend = {
             userId: parseInt(currentUser),
             friendUserId: friendUsername.value
         }
+        
         saveFriend(newFriend)
 
         console.log("save friend button clicked + friend saved to API >>") 
@@ -26,6 +33,8 @@ contentTarget.addEventListener("click", event => {
     dispatchFriendStateChange()
 })
 
+
+// window.alert("This username does not exist. Please try another. 🤓")
 
 
 const render = () => {
