@@ -16,8 +16,8 @@ eventHub.addEventListener("click", clickEvent => {
         const articleTitle = document.querySelector("#article--title")
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")
-
-        if(articleTitle !== "", articleSynopsis !== "", articleURL !== "") {
+        console.log(articleTitle, articleSynopsis, articleURL)
+        if(articleTitle.value !== "" && articleSynopsis.value !== "" && articleURL.value !== "") {
 
             const newArticle = {
                 // Key/value pairs here
