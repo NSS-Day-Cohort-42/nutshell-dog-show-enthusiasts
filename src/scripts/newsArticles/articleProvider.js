@@ -33,3 +33,12 @@ export const saveArticle = (article) => {
     .then(getArticles)
     .then(dispatchStateChangeEvent) 
 }
+
+
+export const deleteArticle = (articleId) => {
+    return fetch(`http://localhost:8088/article/${ articleId }`, {
+        method: "DELETE"
+    })
+        .then(getArticles)
+        .then(dispatchStateChangeEvent)
+}
