@@ -12,7 +12,7 @@
 
 .friends--addFriend {
     border: 2px dotted red;
-
+    padding: 2rem;
 }
 
 .button__addFriend,
