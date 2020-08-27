@@ -1,10 +1,16 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
+import "./auth/Auth.js"
 
-LoginForm()
-RegisterForm()
-Nutshell()
+// console.log(sessionStorage.getItem("activeUser")) --- This was equal to null
+// if active user is not successfully logged in render login / reg forms. If authenticated load the app.
+if (sessionStorage.getItem("activeUser") !== null) {
+    Nutshell()
+} else {
+    LoginForm()
+    RegisterForm()
+}
 
 /*
     1. Check if the user is authenticated by looking in session storage for `activeUser`
