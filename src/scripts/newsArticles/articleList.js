@@ -9,11 +9,11 @@ export const articleList = () => {
     .then(() => { 
         const allArticles = useArticles()
         console.log(allArticles)
-        render(allArticles)
+        render(allArticles) // rendering all articles to put into the DOM 
     })
 }
                             
-
+// converting all of the article objects to HTML 
 const render = (articleArr) => {
     const allArticlesHtml = articleArr.map (
         (currentArticle) => {
