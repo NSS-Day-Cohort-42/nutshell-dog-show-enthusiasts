@@ -9,7 +9,7 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(messageStateChangedEvent)
 }
 
-export const usePublicChats = () => { 
+export const useMessages = () => { 
     return publicChats.slice()
 }
 

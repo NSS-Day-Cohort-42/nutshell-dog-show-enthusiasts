@@ -1,4 +1,5 @@
-
+import { messageList } from "./publicChatList.js"
+import { saveMessage } from "./publicChatProvider.js"
 
 
 const contentTarget = document.querySelector(".chatForm")
@@ -19,8 +20,8 @@ eventHub.addEventListener("click", clickEvent => {
                 timestamp: Date.now(), 
                 userId: parseInt(currentUser)             
             }
-            saveArticle(newArticle)
-            articleList()
+            saveMessage(newMessage)
+            messageList()
         } else { 
             window.alert("Write A Message")
         }
@@ -36,6 +37,6 @@ const render = () => {
     `
     } 
 
-export const articleForm = () => { 
+export const messageForm = () => { 
     render()
 }
