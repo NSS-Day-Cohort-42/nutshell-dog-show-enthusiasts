@@ -2,7 +2,7 @@ import { saveArticle } from "./articleProvider.js";
 import { articleList } from "./articleList.js";
 import { createArticleButton } from "./articleShowFormButton.js";
 
-const contentTarget = document.querySelector(".article--container")
+const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => { 
@@ -13,7 +13,6 @@ eventHub.addEventListener("click", clickEvent => {
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "save__Article") {
-        console.log("Clicked saved Article")
         const articleTitle = document.querySelector("#article--title")
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")
