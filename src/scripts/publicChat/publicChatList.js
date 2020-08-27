@@ -9,7 +9,6 @@ export const messageList = () => {
     getMessages()
     .then(() => { 
         const allMessages = useMessages()
-        console.log(allArticles)
         render(allMessages) // rendering all articles to put into the DOM 
     })
 }

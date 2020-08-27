@@ -17,7 +17,7 @@ export const getMessages = () => {
     return fetch('http://localhost:8088/messages')
         .then(response => response.json())
         .then(parsedMessages => {
-            messages = parsedMessages
+            publicChats = parsedMessages
         })
 }
 

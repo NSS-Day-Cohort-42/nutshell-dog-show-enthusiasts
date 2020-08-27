@@ -36,7 +36,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 const render = () => {
     contentTarget.innerHTML = `
-        <input type="text" id ="message--Text" placeholder="What's on your mind?" autofocus/> 
+        <input type="text" id ="message--Text" placeholder="What's on your mind?"/> 
         
         <button id="send__Message">Send</button> 
         <input type="hidden" id="messageId" name="messageId" value="">

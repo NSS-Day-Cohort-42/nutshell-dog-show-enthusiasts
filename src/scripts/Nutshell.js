@@ -4,10 +4,12 @@ import "./newsArticles/articleForm.js";
 import { articleList } from "./newsArticles/articleList.js";
 import "./publicChat/publicChatForm.js"
 import { createMessageButton } from "./publicChat/createMessageButton.js";
+import { messageList } from "./publicChat/publicChatList.js";
 
 export const Nutshell = () => {
     // Render all your UI components here
     createArticleButton()
     articleList()
     createMessageButton()
+    messageList()
 }
