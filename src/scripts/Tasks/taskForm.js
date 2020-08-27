@@ -39,6 +39,7 @@ eventHub.addEventListener("click", clickEvent => {
             completed : false,
         }
         saveTask(newTask)
+        render()
     }
 })
 
