@@ -16,14 +16,21 @@ contentTarget.addEventListener("click", event => {
         const friendUsername = document.querySelector("#addFriendForm--friendUsername")
         const currentUser = sessionStorage.getItem("activeUser")
         const allUsers = useUsers()
-              
-        
+
         console.log("friendUsername value >>", friendUsername.value)
+
+
+        const friendUserId = friendUsername.value => {
+            allUsers.map()
+        }
+             
+        
 
         
         const newFriend = {
             userId: parseInt(currentUser),
             friendUserId: friendUsername.value
+            // friendUserId: friendUsername.value
         }
         
         saveFriend(newFriend)
