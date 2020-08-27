@@ -15,7 +15,12 @@ export const articleList = () => {
                             
 // converting all of the article objects to HTML 
 const render = (articleArr) => {
-    const allArticlesHtml = articleArr.map (
+    const sortedArticles = articleArr.sort((a,b) => {
+        return b.timestamp - a.timestamp
+    })
+        console.log(sortedArticles)
+
+    const allArticlesHtml = sortedArticles.map (
         (currentArticle) => {
             return articleHTMLConverter(currentArticle)
             }  
