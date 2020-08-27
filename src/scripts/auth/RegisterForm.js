@@ -20,12 +20,12 @@ eventHub.addEventListener("click", e => {
             && (password === passwordVerify)) {
 
             // Does the user exist?
-            fetch(`http://localhost:8088/users?username=${username}`)
+            fetch(`http://localhost:8080/users?username=${username}`)
             .then(response => response.json())
             .then(users => {
                 console.log(users[0])
                 if (users.length === 0) {
-                    fetch("http://localhost:8088/users", {
+                    fetch("http://localhost:8080/users", {
                         "method": "POST",
                         "headers": {
                             "Content-Type": "application/json"

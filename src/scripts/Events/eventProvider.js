@@ -3,7 +3,7 @@ let events = [];
  
 const eventHub = document.querySelector('.container')
 
-const dispatchChangeEvent = () => {
+export const dispatchChangeEvent = () => {
     const eventStateChanged = new CustomEvent('eventStateChanged')
     
     eventHub.dispatchEvent(eventStateChanged)
@@ -18,7 +18,7 @@ export const useEventEntries = () => {
 
 
 export const getEventEntries =  async () => {
-    const response = await fetch('http://localhost:3000/events');
+    const response = await fetch('http://localhost:8080/events');
     const parsedEvents = await response.json();
     events = parsedEvents;
 }
@@ -26,7 +26,7 @@ export const getEventEntries =  async () => {
     export const saveEvents =  (event) => {
         const jsonEntry = JSON.stringify(event)
     
-         return fetch('http://localhost:3000/events',{
+         return fetch('http://localhost:8080/events',{
             method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -38,7 +38,7 @@ export const getEventEntries =  async () => {
     }
 
     export const deleteEvent = (event) => {
-        return fetch(`http://localhost:3000/events`, {
+        return fetch(`http://localhost:8080/events`, {
             method: "DELETE"
         })
         .then(getEventEntries)
