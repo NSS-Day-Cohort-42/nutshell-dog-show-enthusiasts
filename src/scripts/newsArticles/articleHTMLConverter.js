@@ -1,6 +1,14 @@
+import { deleteArticle } from "./articleProvider.js";
 
+const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("delete--")) { 
+        const [prompt, articleId] = clickEvent.target.id.split("--")
 
+        deleteArticle(articleId)
+    }
+})
 
 
 

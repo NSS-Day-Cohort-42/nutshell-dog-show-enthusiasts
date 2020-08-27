@@ -36,6 +36,7 @@ export const saveArticle = (article) => {
 
 
 export const deleteArticle = (articleId) => {
+    console.log("articleId:", articleId)
     return fetch(`http://localhost:8088/article/${ articleId }`, {
         method: "DELETE"
     })

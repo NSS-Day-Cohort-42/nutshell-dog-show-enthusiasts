@@ -1,7 +1,8 @@
-import { useArticles, getArticles } from "./articleProvider.js";
+import { useArticles, getArticles, deleteArticle } from "./articleProvider.js";
 import { articleHTMLConverter } from "./articleHTMLConverter.js";
 
 const contentTarget = document.querySelector(".article--container")
+const eventHub = document.querySelector(".container")
 
 export const articleList = () => { 
     getArticles()
@@ -21,3 +22,8 @@ const render = (articleArr) => {
         ).join("")
     contentTarget.innerHTML = allArticlesHtml
 }
+
+eventHub.addEventListener("articleStateChanged", CustomEvent => {
+    const deletedArticles = useArticles()
+    render(deletedArticles)
+})
