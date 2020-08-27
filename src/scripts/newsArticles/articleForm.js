@@ -17,22 +17,23 @@ eventHub.addEventListener("click", clickEvent => {
         const articleSynopsis = document.querySelector("#article--synopsis")
         const articleURL = document.querySelector("#article--url")
 
-            if(articleTitle !== "", articleSynopsis !== "", articleURL !== "") {
+        if(articleTitle !== "", articleSynopsis !== "", articleURL !== "") {
 
-                const newArticle = {
-                    // Key/value pairs here
-                    title: articleTitle.value,
-                    synopsis: articleSynopsis.value,
-                    url: articleURL.value,
-                    timestamp: Date.now(),                    
-                }
-                saveArticle(newArticle)
-                render()
-            } else { 
-                window.alert("Fill in all the fields!!!")
+            const newArticle = {
+                // Key/value pairs here
+                title: articleTitle.value,
+                synopsis: articleSynopsis.value,
+                url: articleURL.value,
+                timestamp: Date.now(), 
+                // userId:                    
             }
+            saveArticle(newArticle)
+            render()
+        } else { 
+            window.alert("Fill in all the fields!!!")
         }
-    })
+    }
+})
 
 const render = () => {
     contentTarget.innerHTML = `
