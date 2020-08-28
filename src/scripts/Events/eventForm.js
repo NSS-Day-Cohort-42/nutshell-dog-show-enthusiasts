@@ -46,7 +46,7 @@ eventHub.addEventListener('click', event => {
 )
 
 
-export const eventformButton = () => {
+export const eventFormButton = () => {
     contentTarget.innerHTML = ` 
     <button id="button__createEvent">createEvent</button>
     `
