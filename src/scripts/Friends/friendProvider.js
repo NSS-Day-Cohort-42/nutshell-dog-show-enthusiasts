@@ -52,3 +52,4 @@ export const deleteFriend = (relationshipId) => {
         .then(getFriends)
         .then(dispatchFriendStateChange)
 } 
+

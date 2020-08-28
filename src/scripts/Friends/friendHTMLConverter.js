@@ -1,4 +1,4 @@
-import { deleteFriend, useFriends, getFriends } from "./friendProvider.js";
+import { deleteFriend, useFriends } from "./friendProvider.js";
 
 const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 const eventHub = document.querySelector(".container")

@@ -23,7 +23,7 @@ contentTarget.addEventListener("click", event => {
             return friendUsername.value === user.username
         }) 
 
-        
+                
         if (friendUserObj === undefined ) {
             window.alert("Please enter a valid username.")
         } 
@@ -34,10 +34,12 @@ contentTarget.addEventListener("click", event => {
                 userId: currentUserId,
                 friendUserId: friendUserId
             }                        
-            
             if (friendUserId === currentUserId){
-                window.alert("Cannot add yourself as a friend. 😂")
-            }
+                window.alert("Doh. Cannot add yourself as a friend. 😂")
+            }            
+            // if (findFriend(parseInt(friendUserId)) > 0 ){
+            //     window.alert("You have already saved this friend.")
+            // }
             else{
                 saveFriend(newFriend)      
             }                        
