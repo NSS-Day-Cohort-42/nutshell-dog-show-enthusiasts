@@ -40,3 +40,15 @@ export const deleteMessages = (messageId) => {
         .then(getMessages)
         .then(dispatchStateChangeEvent)
 }
+
+export const editMessages = (message) => {
+    return fetch (`http://localhost:8088/messages/${message.id}`, {
+        method : "PUT",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(message)
+    })
+    .then(getMessages)
+    .then(dispatchStateChangeEvent)
+}
