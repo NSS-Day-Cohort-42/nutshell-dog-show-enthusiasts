@@ -24,15 +24,17 @@ eventHub.addEventListener('click', event => {
         const eventTitle = document.querySelector('.eventTitle')
         const eventLocation = document.querySelector('.eventLocation')
         const currentUser = sessionStorage.getItem("activeUser")
-        const timestamp = document.querySelector('.button__eventWeather')
-        if (eventTitle.value !== "" && eventLocation.value !== "" && timestamp.value !== null) {
+        
+        const timeStamp = document.querySelector('.event__CompletionDate')
+     
+        if (eventTitle.value !== "" && eventLocation.value !== "" && timeStamp.value !== null) {
 
 
 
             const newEvent = {
-                eventTitle: eventTitle.value,
+                eventTitle: eventTitle.value,    
                 Location: eventLocation.value,
-                timestamp: Date.now(),
+                date: timeStamp.value,
                 userId: parseInt(currentUser)
             }
 

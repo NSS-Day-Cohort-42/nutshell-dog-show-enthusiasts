@@ -37,15 +37,15 @@ export const getEventEntries =  async () => {
         .then(dispatchChangeEvent)
     }
 
-    export const deleteEvent = (event) => {
-        return fetch(`http://localhost:8088/events`, {
+    export const deleteEvent = (eventid) => {
+        return fetch(`http://localhost:8088/events/${eventid}`, {
             method: "DELETE"
         })
         .then(getEventEntries)
         .then(dispatchChangeEvent)
-        .catch(
-            (error) => {
-                console.log(error)
-            }
-        )
+        
+        
+            
+            
+        
     }
