@@ -1,9 +1,9 @@
 import { getUsers, useUsers } from "../Users/userProvider.js";
 import { dispatchFriendStateChange, saveFriend } from "./friendProvider.js";
 
+const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--addFriend")
-const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
 // hear "addFriendClicked" + render addFriendForm()
 eventHub.addEventListener("addFriendClicked", event => { 

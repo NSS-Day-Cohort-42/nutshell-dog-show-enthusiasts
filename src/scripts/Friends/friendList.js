@@ -2,24 +2,24 @@ import { getUsers, useUsers } from "../Users/userProvider.js";
 import { getFriends, useFriends } from "../Friends/friendProvider.js";
 import { friendHTMLConverter } from "./friendHTMLConverter.js";
 
+const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
-const currentUser = parseInt(sessionStorage.getItem("activeUser"))
 
 
 
 const render = (allUsers, allRelationships) => {
-    const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUser)
+    const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUserId)
     
-    const friends = relationshipsForThisUser.map(relationship => {
+    const friendsArray = relationshipsForThisUser.map(relationship => {
         const matchingUserObj = allUsers.find(user => user.id === relationship.friendUserId)
         return matchingUserObj
     })
 
-    // console.log("console log friends >>", friends)
+    console.log("console log friendsArray >>", friendsArray)
 
     let htmlRepresentations = ""
-    friends.forEach(friend => {
+    friendsArray.forEach(friend => {
         htmlRepresentations += friendHTMLConverter(friend)
     })
 
