@@ -15,6 +15,7 @@ const render = (allUsers, allRelationships) => {
         return matchingUserObj
     })
 
+    console.log("console log relationshipsForThisUser >>", relationshipsForThisUser)
     console.log("console log friendsArray >>", friendsArray)
 
     let htmlRepresentations = ""
