@@ -10,6 +10,7 @@ import "./publicChat/publicChatForm.js"
 import { createMessageButton } from "./publicChat/createMessageButton.js";
 import { messageList } from "./publicChat/publicChatList.js";
 import { eventFormButton  } from "./Events/eventForm.js";
+import { WelcomeMessage } from "./Welcome/welcome.js";
 
 // Render all your UI components here
 export const Nutshell = () => {
@@ -24,7 +25,10 @@ export const Nutshell = () => {
     TaskFormCreateButton()
     TaskList()
     createArticleButton()
+
     eventFormButton()
+
+    WelcomeMessage()
 }
 
    
