@@ -29,8 +29,8 @@ export const saveMessage = (message) => {
         },
         body: JSON.stringify(message)
     })
-    .then(getMessages)
-    .then(dispatchStateChangeEvent) 
+        .then(getMessages)
+        .then(dispatchStateChangeEvent) 
 }
 
 export const deleteMessages = (messageId) => {
@@ -49,6 +49,6 @@ export const editMessages = (message) => {
         },
         body : JSON.stringify(message)
     })
-    .then(getMessages)
-    .then(dispatchStateChangeEvent)
+        .then(getMessages)
+        .then(dispatchStateChangeEvent)
 }

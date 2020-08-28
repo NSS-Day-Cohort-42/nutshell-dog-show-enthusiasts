@@ -12,19 +12,20 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-eventHub.addEventListener("editMessage", customEvent => {
+eventHub.addEventListener("editMessageClicked", customEvent => {
     console.log("edit event loaded")
     const allOfTheMessages = useMessages()
-    console.log(event.detail)
-    const messageID = event.detail.messageID
-    const noteObject = allOfTheMessages.find(message => message.id === messageID)
-    
+    console.log(allOfTheMessages)
+    const messageToEdit = customEvent.detail.messageId
+    console.log(customEvent.detail)
+    const messageObject = allOfTheMessages.find(message => message.id === messageToEdit)
+    console.log(messageObject)
     
     const messageText = document.querySelector("#message--Text")
     const currentUser = sessionStorage.getItem("activeUser")
     
-    messageText.value = noteObject.title
-    currentUser.value = noteObject.author
+    messageText.value = messageObject.text
+    currentUser.value = messageObject.currentUser
     id.value = messageID
 })
 
@@ -43,13 +44,13 @@ eventHub.addEventListener("keypress", KeyPressEvent =>{
                 timestamp: Date.now(), 
                 userId: parseInt(currentUser)             
             }
-            saveMessage(newMessage)
-            messageList()
-        } else { 
-            window.alert("Write A Message")
+                saveMessage(newMessage)
+                messageList()
+            } else { 
+                window.alert("Write A Message")
+            }   
         }
-    }
-})
+    })
 
 
 
@@ -80,9 +81,10 @@ eventHub.addEventListener("click", clickEvent => {
                 
             render()
         }
-        } else { 
-            window.alert("Write A Message")
-        }
+        } 
+        // else { 
+        //     window.alert("Write A Message")
+        // }
     })
 
 const render = () => {
