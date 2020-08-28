@@ -18,7 +18,7 @@ export const friendHTMLConverter = (friendObj) => {
 
 // hear "deleteFriendClicked" + render deleteFriend()
 eventHub.addEventListener("click", event => {
-    if (event.target.id.startsWith("deleteFriendButton")) {
+    if (event.target.id.startsWith("deleteFriendButton--")) {
         const [prompt1, prompt2, friendUserIdTarget] = event.target.id.split("--")
 
         const relationships = useFriends()
