@@ -10,7 +10,20 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-
+eventHub.addEventListener("click", clickEvent => {
+    
+    if(clickEvent.target.id.includes("editMessage--")) {
+        const [prompt, messageId] = clickEvent.target.id.split("--")
+        const editMessage = new CustomEvent("editMessageClicked", {
+            detail : {
+                taskId : parseInt(messageId)
+            }
+        })
+        
+        eventHub.dispatchEvent(editMessage)
+                
+    }
+})
 
 
 export const messagesHTMLConverter = (messageObj) => {
