@@ -15,18 +15,15 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("editMessageClicked", customEvent => {
    
     const allOfTheMessages = useMessages()
-    console.log(allOfTheMessages)
     const messageToEdit = customEvent.detail.messageId
-    console.log(customEvent.detail)
     const messageObject = allOfTheMessages.find(message => message.id === messageToEdit)
-    console.log(messageObject)
     
-    // render the create message form again so we can populate the message the user wants to edit
+    // rendering the create message form again so we can populate the message the user wants to edit
     messageForm()
-    // target the message form fields
+    // targeting the message form fields
     const messageText = document.querySelector("#message--Text")
     const messageIdInput = document.querySelector("#messageId")
-    // populate the message form with the data of the message the user is editing
+    // populating the message form with the data of the message the user is editing
     messageText.value = messageObject.text
     messageIdInput.value = messageObject.id
 })
@@ -40,7 +37,6 @@ eventHub.addEventListener("keypress", KeyPressEvent =>{
 })
 
 eventHub.addEventListener("click", clickEvent => {
-    // first, check if they clicked send message button
     if (clickEvent.target.id === "send__Message") {
         sendMessage()
     }
@@ -50,9 +46,9 @@ const sendMessage = () => {
     const messageText = document.querySelector("#message--Text")
     const messageId = document.querySelector("#messageId").value
     const currentUser = sessionStorage.getItem("activeUser")
-    // check that the user filled out message field...if not, show an alert
+    // checking that the user filled out message field...if not, show an alert
     if (messageText.value !== "") {
-        // check if message id exists...if not, create as new message. if it exists, they are editing an existing message
+        // checking if message id exists...if not, create as new message. if it exists, they are editing an existing message
         if (messageId == "") {
             const newMessage = {
                 // Key/value pairs here
