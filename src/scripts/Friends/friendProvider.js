@@ -21,6 +21,12 @@ export const dispatchFriendStateChange = () => {
     eventHub.dispatchEvent(customEvent)    
 }
 
+// dispatch "friendSaved"
+export const dispatchFriendSaved = () => {
+    const customEvent = new CustomEvent ("friendSaved")
+    eventHub.dispatchEvent(customEvent)    
+}
+
 
 // saveFriend
 export const saveFriend = (friend) => {
@@ -31,6 +37,7 @@ export const saveFriend = (friend) => {
         },
         body: JSON.stringify(friend)
     })
+        .then(dispatchFriendSaved)
         .then(getFriends)
         .then(dispatchFriendStateChange)
 } 

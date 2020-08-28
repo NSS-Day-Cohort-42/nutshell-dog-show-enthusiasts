@@ -25,7 +25,7 @@ contentTarget.addEventListener("click", event => {
 
         
         if (friendUserObj === undefined ) {
-            window.alert("The username you entered does not exist. Please try again. 😏")
+            window.alert("Please enter a valid username.")
         } 
         else {
             const friendUserId = friendUserObj.id

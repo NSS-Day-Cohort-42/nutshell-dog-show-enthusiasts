@@ -12,7 +12,8 @@ contentTarget.addEventListener("click", event => {
 })
 
 
-eventHub.addEventListener("saveFriendClicked", () => {
+// hear "friendSaved" + render addFriendButton()
+eventHub.addEventListener("friendSaved", event => { 
     addFriendButton()
 })
 
