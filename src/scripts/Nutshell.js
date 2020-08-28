@@ -5,10 +5,11 @@ import "./Tasks/taskList.js"
 import {TaskList} from "./Tasks/taskList.js"
 import { createArticleButton } from "./newsArticles/articleShowFormButton.js";
 import "./newsArticles/articleForm.js";
+
+import { friendList } from "./Friends/friendList.js";
 import { addFriendButton } from "./Friends/addFriendButton.js";
 import "./Friends/addFriendForm.js";
-// import { addFriendForm } from "./Friends/addFriendForm.js";
-import { friendList } from "./Friends/friendList.js";
+
 import { articleList } from "./newsArticles/articleList.js";
 import "./publicChat/publicChatForm.js"
 import { createMessageButton } from "./publicChat/createMessageButton.js";
@@ -18,7 +19,7 @@ import { WelcomeMessage } from "./Welcome/welcome.js";
 
 // Render all your UI components here
 export const Nutshell = () => {
-    // Render all your UI components here
+
     createArticleButton()
     articleList()
 
