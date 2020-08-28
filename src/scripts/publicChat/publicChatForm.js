@@ -21,11 +21,14 @@ eventHub.addEventListener("editMessageClicked", customEvent => {
     const messageObject = allOfTheMessages.find(message => message.id === messageToEdit)
     console.log(messageObject)
     
+    messageForm()
+
     const messageText = document.querySelector("#message--Text")
     const currentUser = sessionStorage.getItem("activeUser")
     
     messageText.value = messageObject.text
-    currentUser.value = messageObject.currentUser
+    console.log(currentUser.value)
+    currentUser.value = messageObject.userId
     id.value = messageID
 })
 

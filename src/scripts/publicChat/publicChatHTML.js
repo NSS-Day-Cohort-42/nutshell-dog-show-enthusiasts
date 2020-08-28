@@ -16,7 +16,7 @@ eventHub.addEventListener("click", clickEvent => {
         const [prompt, messageId] = clickEvent.target.id.split("--")
         const editMessage = new CustomEvent("editMessageClicked", {
             detail : {
-                taskId : parseInt(messageId)
+                messageId : parseInt(messageId)
             }
         })
         
