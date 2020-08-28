@@ -1,7 +1,7 @@
-import { useArticles, getArticles, deleteArticle } from "./articleProvider.js";
+import { useArticles, getArticles } from "./articleProvider.js";
 import { articleHTMLConverter } from "./articleHTMLConverter.js";
 
-const contentTarget = document.querySelector(".article--container")
+const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
 
 export const articleList = () => { 
@@ -15,7 +15,12 @@ export const articleList = () => {
                             
 // converting all of the article objects to HTML 
 const render = (articleArr) => {
-    const allArticlesHtml = articleArr.map (
+    const sortedArticles = articleArr.sort((a,b) => {
+        return b.timestamp - a.timestamp
+    })
+        console.log(sortedArticles)
+
+    const allArticlesHtml = sortedArticles.map (
         (currentArticle) => {
             return articleHTMLConverter(currentArticle)
             }  
