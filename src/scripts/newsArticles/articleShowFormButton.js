@@ -9,6 +9,7 @@ eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "create__Article") { 
         const createArticleEvent = new CustomEvent("createArticle")
         eventHub.dispatchEvent(createArticleEvent)
+        console.log("Article Button Clicked")
     }
 })
 
