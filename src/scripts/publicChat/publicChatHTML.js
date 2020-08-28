@@ -33,6 +33,7 @@ export const messagesHTMLConverter = (messageObj) => {
         <div class="message__Text">${messageObj.text}</div> 
     
         <button id='messageDelete--${ messageObj.id }'>Delete</button>
+        <button id="editMessage--${ messageObj.id }">Edit</button>
     </section>
     `
 }

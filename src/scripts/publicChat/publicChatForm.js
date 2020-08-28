@@ -1,5 +1,5 @@
 import { messageList } from "./publicChatList.js"
-import { saveMessage } from "./publicChatProvider.js"
+import { saveMessage, editMessages, useMessages } from "./publicChatProvider.js"
 
 
 const contentTarget = document.querySelector(".publicChat--container")
@@ -11,6 +11,24 @@ eventHub.addEventListener("click", clickEvent => {
         messageForm()
     }
 })
+
+eventHub.addEventListener("editMessage", customEvent => {
+    console.log("edit event loaded")
+    const allOfTheMessages = useMessages()
+    console.log(event.detail)
+    const messageID = event.detail.messageID
+    const noteObject = allOfTheMessages.find(message => message.id === messageID)
+    
+    
+    const messageText = document.querySelector("#message--Text")
+    const currentUser = sessionStorage.getItem("activeUser")
+    
+    messageText.value = noteObject.title
+    currentUser.value = noteObject.author
+    id.value = messageID
+})
+
+
 
 eventHub.addEventListener("keypress", KeyPressEvent =>{
     if(KeyPressEvent.charCode === 13) {
@@ -43,19 +61,29 @@ eventHub.addEventListener("click", clickEvent => {
         
         if(messageText.value !== "") {
 
-            const newMessage = {
+                    const newMessage = {
                 // Key/value pairs here
+                        text: messageText.value,
+                        timestamp: Date.now(), 
+                        userId: parseInt(currentUser)             
+                    }
+                saveMessage(newMessage)
+                messageList()
+        } else {
+            const editedMessage = {
                 text: messageText.value,
                 timestamp: Date.now(), 
-                userId: parseInt(currentUser)             
-            }
-            saveMessage(newMessage)
-            messageList()
+                userId: parseInt(currentUser)
+        } 
+        
+            editMessages(editedMessage)
+                
+            render()
+        }
         } else { 
             window.alert("Write A Message")
         }
-    }
-})
+    })
 
 const render = () => {
     contentTarget.innerHTML = `
