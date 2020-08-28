@@ -13,7 +13,7 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 eventHub.addEventListener("editMessageClicked", customEvent => {
-    console.log("edit event loaded")
+   
     const allOfTheMessages = useMessages()
     console.log(allOfTheMessages)
     const messageToEdit = customEvent.detail.messageId
@@ -24,12 +24,12 @@ eventHub.addEventListener("editMessageClicked", customEvent => {
     messageForm()
 
     const messageText = document.querySelector("#message--Text")
-    const currentUser = sessionStorage.getItem("activeUser")
-    
+    const currentUser = parseInt(sessionStorage.getItem("activeUser"))
+    const Id = document.querySelector("#messageId")
+debugger
     messageText.value = messageObject.text
-    console.log(currentUser.value)
-    currentUser.value = messageObject.userId
-    id.value = messageID
+    currentUser = messageObject.userId
+    Id.value = messageObject.id
 })
 
 
@@ -40,18 +40,20 @@ eventHub.addEventListener("keypress", KeyPressEvent =>{
         const currentUser = sessionStorage.getItem("activeUser")
         
         if(messageText.value !== "") {
-
-            const newMessage = {
-                // Key/value pairs here
-                text: messageText.value,
-                timestamp: Date.now(), 
-                userId: parseInt(currentUser)             
-            }
+          
+                const newMessage = {
+                    
+                    // Key/value pairs here
+                    text: messageText.value,
+                    timestamp: Date.now(), 
+                    userId: parseInt(currentUser)             
+                }
                 saveMessage(newMessage)
                 messageList()
             } else { 
                 window.alert("Write A Message")
             }   
+            
         }
     })
 
@@ -64,7 +66,7 @@ eventHub.addEventListener("click", clickEvent => {
         const currentUser = sessionStorage.getItem("activeUser")
         
         if(messageText.value !== "") {
-
+            
                     const newMessage = {
                 // Key/value pairs here
                         text: messageText.value,
@@ -95,7 +97,7 @@ const render = () => {
         <input type="text" id ="message--Text" placeholder="What's on your mind?"/> 
         
         <button id="send__Message">Send</button> 
-        <input type="hidden" id="messageId" name="messageId" value="">
+        <input type="hidden" id="messageId" name="messageId">
     `
     } 
 
