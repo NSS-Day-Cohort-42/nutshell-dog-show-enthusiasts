@@ -39,8 +39,6 @@ eventHub.addEventListener("keypress", KeyPressEvent =>{
     }
 })
 
-
-
 eventHub.addEventListener("click", clickEvent => {
     // first, check if they clicked send message button
     if (clickEvent.target.id === "send__Message") {
