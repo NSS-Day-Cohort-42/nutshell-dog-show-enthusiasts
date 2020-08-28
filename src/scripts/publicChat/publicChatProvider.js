@@ -42,6 +42,7 @@ export const deleteMessages = (messageId) => {
 }
 
 export const editMessages = (message) => {
+    console.log(message)
     return fetch (`http://localhost:8088/messages/${message.id}`, {
         method : "PUT",
         headers : {
