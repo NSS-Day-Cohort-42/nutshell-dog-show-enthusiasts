@@ -2,13 +2,12 @@ import { getUsers, useUsers } from "../Users/userProvider.js";
 import { getFriends, useFriends } from "../Friends/friendProvider.js";
 import { friendHTMLConverter } from "./friendHTMLConverter.js";
 
-const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
 
 
-
 const render = (allUsers, allRelationships) => {
+    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
     const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUserId)
     
     const friendsArray = relationshipsForThisUser.map(relationship => {
@@ -41,7 +40,6 @@ export const friendList = () => {
         render(allUsers, allRelationships)
     })
 }
-
 
 
 eventHub.addEventListener("friendStateChanged", event => {

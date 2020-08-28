@@ -41,7 +41,8 @@ contentTarget.addEventListener("click", event => {
             //     window.alert("You have already saved this friend.")
             // }
             else{
-                saveFriend(newFriend)      
+                saveFriend(newFriend)
+                render()      
             }                        
         }
     }
