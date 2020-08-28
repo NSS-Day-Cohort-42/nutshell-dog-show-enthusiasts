@@ -1,3 +1,10 @@
+//Mark S
+//TaskList() renders task that belong to the current user and where the task completed box has not been checked
+//For tasks that have been marked completed, an event listener grabs the task id and updates the value of the "completed" key 
+//to true so that it is not rendered but is still saved in the database.
+//Event listener for delete tasks removes those task from the DOM and database
+
+
 import {getUsers, useUsers} from "../Users/userProvider.js"
 import {getTasks, useTasks, deleteTask, updateTask} from "./taskProvider.js"
 import {taskHTMLCon} from "./taskHTMLConverter.js"
@@ -90,3 +97,4 @@ eventHub.addEventListener("taskUpdatedStateChange", () => {
     tasks = useTasks()
     render()
 })
+
