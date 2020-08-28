@@ -36,12 +36,12 @@ export const saveFriend = (friend) => {
 } 
 
 
-// // deleteFriend
-// export const deleteFriend = (relationshipId) => {
+// deleteFriend
+export const deleteFriend = (relationshipId) => {
 
-//     return fetch (`http://localhost:8088/friends/${relationshipId}`, {
-//         method: "DELETE",
-//     })
-//         .then(getFriends)
-//         .then(dispatchFriendStateChange)
-// } 
+    return fetch (`http://localhost:8088/friends/${relationshipId}`, {
+        method: "DELETE",
+    })
+        .then(getFriends)
+        .then(dispatchFriendStateChange)
+} 

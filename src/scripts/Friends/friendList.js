@@ -16,7 +16,7 @@ const render = (allUsers, allRelationships) => {
         return matchingUserObj
     })
 
-    // console.log("console log friends >>", friends)
+    console.log("console log friends >>", friends)
 
     let htmlRepresentations = ""
     friends.forEach(friend => {
