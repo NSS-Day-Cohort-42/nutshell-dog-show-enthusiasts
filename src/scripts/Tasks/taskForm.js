@@ -1,3 +1,9 @@
+//Mark S
+//After the createTask button is clicked the Task Creation form is rendered
+//Event listeners for saving and editing objects that are saved to the database and then
+//rendered to the DOM
+
+
 import { saveTask, updateTask } from "./taskProvider.js"
 import {getTasks, useTasks} from "./taskProvider.js"
 
@@ -60,7 +66,7 @@ eventHub.addEventListener("click", clickEvent => {
                 }
                 
                 updateTask(editedTask)
-                id.value = ""
+                
                 render()
             }
         } else {
@@ -75,19 +81,19 @@ eventHub.addEventListener("editTaskClicked", editEvent => {
         const taskIdToEdit = editEvent.detail.taskId
         const alltasks = useTasks()
         const findTask = alltasks.find(task => task.id === taskIdToEdit)
-        console.log(findTask)
-        const id = document.getElementById("taskId")
         
+        const id = document.getElementById("taskId")
         const taskName = document.querySelector("#taskName")
         const taskDescription = document.querySelector("#taskDescription")
         const taskExpectedCompletion = document.querySelector("#taskExpectedCompletionDate")
-       
         
         id.value = findTask.id
-        console.log(id.value)
         taskName.value = findTask.taskTitle
         taskDescription.value = findTask.description
         taskExpectedCompletion.value = findTask.taskDate
+       
+        
+        
         
     }
 )
@@ -99,19 +105,4 @@ eventHub.addEventListener("editTaskClicked", editEvent => {
 
         
 
-// eventHub.addEventListener("click", clickEvent => {
-//     console.log(clickEvent.target.id)
-//     if(clickEvent.target.id.includes("editEntry--")) {
-//         const idForTaskEdit = clickEvent.target.id.split("--")[1]
-//         const editEvent = new CustomEvent("editTaskClicked", {
-//             detail : {
-//                 taskId : parseInt(idForTaskEdit)
-//             }
-//         })
-        
-//         eventHub.dispatchEvent(editEvent)
-        
-        
-//     }
-// })
 

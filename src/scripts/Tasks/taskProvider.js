@@ -1,3 +1,6 @@
+//Mark S
+//Interacts with JSON-Server to get data to be edited, added to, and saved
+
 let tasks = []
 
 const eventHub = document.querySelector(".container")
