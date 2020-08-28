@@ -1,7 +1,6 @@
 import { getUsers, useUsers } from "../Users/userProvider.js";
-import { dispatchFriendStateChange, saveFriend } from "./friendProvider.js";
+import { dispatchFriendStateChange, saveFriend, useFriends } from "./friendProvider.js";
 
-const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--addFriend")
 
@@ -13,6 +12,10 @@ eventHub.addEventListener("addFriendClicked", event => {
 
 // hear button click (from button with id "saveFriendButton")
 contentTarget.addEventListener("click", event => {
+    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+    const allRelationships = useFriends()
+    const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUserId)
+
     if (event.target.id === "saveFriendButton") {
         
         const friendUsername = document.querySelector("#addFriendForm--friendUsername")
@@ -37,11 +40,14 @@ contentTarget.addEventListener("click", event => {
             if (friendUserId === currentUserId){
                 window.alert("Doh. Cannot add yourself as a friend. 😂")
             }            
-            // if (findFriend(parseInt(friendUserId)) > 0 ){
+            // if (relationshipsForThisUser.filter(relationship => relationship.userId === currentUserId)
+                
+            //     (friendUserId) === undefined ){
             //     window.alert("You have already saved this friend.")
             // }
             else{
-                saveFriend(newFriend)      
+                saveFriend(newFriend)
+                render()      
             }                        
         }
     }
