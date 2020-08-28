@@ -1,8 +1,12 @@
+//Mark S
+//Welcome message by username of current user, renders after log in
+
+
 import {getUsers, useUsers} from "../Users/userProvider.js"
 
 let users = []
 
-const contentTarget = document.querySelector(".welcome--container")
+const contentTarget = document.querySelector(".welcome__message")
 
 export const WelcomeMessage = () => {
     getUsers()
