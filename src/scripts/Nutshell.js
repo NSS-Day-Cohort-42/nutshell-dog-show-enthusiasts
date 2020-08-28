@@ -19,14 +19,11 @@ import { WelcomeMessage } from "./Welcome/welcome.js";
 // Render all your UI components here
 export const Nutshell = () => {
     // Render all your UI components here
-    
     createArticleButton()
     articleList()
 
-
     TaskFormCreateButton()
     TaskList()
-
 
     addFriendButton()
     friendList()
@@ -35,7 +32,6 @@ export const Nutshell = () => {
     messageList()
     TaskFormCreateButton()
     TaskList()
-
 
     eventFormButton()
 
