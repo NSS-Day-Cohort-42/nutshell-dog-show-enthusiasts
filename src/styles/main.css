@@ -1,6 +1,11 @@
 @import "./friends.css";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
+
+.event__CardContainer {
+    border: 2px dotted black;
+}
+
 body {
     font-family:'Open Sans Condensed', sans-serif;
 }
@@ -9,3 +14,4 @@ body {
     display: flex;
     flex-direction: row;
 }
+
