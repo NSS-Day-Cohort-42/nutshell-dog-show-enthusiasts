@@ -31,8 +31,8 @@ const render = (allUsers, allRelationships) => {
     <h2>Friends</h2>
         <article id="friendList">
         ${htmlRepresentations}
-        </article> 
         ${confirmFriendDialog()}
+        </article> 
         `   
 }
 
