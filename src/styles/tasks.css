@@ -7,3 +7,8 @@
     border-radius: 20px;
     overflow-y: auto;
 }
+
+#taskCreationForm { 
+    display: flex;
+    flex-direction: column;
+}
