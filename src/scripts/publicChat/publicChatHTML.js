@@ -49,7 +49,7 @@ eventHub.addEventListener("click", clickEvent => {
             }
         })
         eventHub.dispatchEvent(customEvent)
-        console.log("dispatched `chatAuthorClicked`; chatAuthorId >>", customEvent.detail.chatAuthorId)        
+        // console.log("dispatched `chatAuthorClicked`; chatAuthorId >>", customEvent.detail.chatAuthorId)        
     }
 })
 

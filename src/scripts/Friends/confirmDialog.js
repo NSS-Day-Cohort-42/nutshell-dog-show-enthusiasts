@@ -13,13 +13,13 @@ eventHub.addEventListener("chatAuthorClicked", event => {
     const allUsers = useUsers()
     
     const authorUserId = parseInt(event.detail.chatAuthorId)
-    console.log("authorUserId >>",authorUserId) 
+    // console.log("authorUserId >>",authorUserId) 
 
     const friendObj = allUsers.find(user => user.id === authorUserId)
-    console.log("friendObj >>",friendObj) 
+    // console.log("friendObj >>",friendObj) 
     
     const htmlRepresentation = `
-        <section>Do you want, do you really really want to add ${friendObj.username}? <br>Pleaes confirm.</section>
+        <section>Do you want do you really really want to add ${friendObj.username}? <br>Pleaes confirm.</section>
         <button class="button__confirmFriend" id="confirmYesButton--authorUserId--${friendObj.id}">Yes</button>
         <button class="button__confirmFriend" id="confirmNoButton">No</button>
     `
@@ -49,10 +49,10 @@ eventHub.addEventListener("click", event => {
         const matchingRelationshipObj =  filteredRelationships.filter(relationship => relationship.friendUserId === friendUserId)
         
         if (friendUserId === currentUserId) {
-            window.alert("Doh. Cannot add yourself as a friend. 😂")
+            window.alert("Doh. Can't add yourself. 😂")
         }
         else if (matchingRelationshipObj.length > 0 ){
-            window.alert(`You are already friends!`)
+            window.alert(`Nope. You are already friends.`)
         }
         else {
             saveFriend(newFriend)
@@ -66,7 +66,7 @@ eventHub.addEventListener("click", event => {
 // note: event.target.parentNode.close() method only works if the button is a direct child of the dialog
 eventHub.addEventListener("click", event => {  
     if (event.target.id === "confirmNoButton") {
-        console.log("heard `confirmedNo` click event")
+        // console.log("heard `confirmedNo` click event")
         event.target.parentNode.close()
     }
 })

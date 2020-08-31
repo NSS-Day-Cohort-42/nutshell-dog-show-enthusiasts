@@ -38,10 +38,10 @@ contentTarget.addEventListener("click", event => {
 
 
             if (friendUserId === currentUserId){
-                window.alert("Doh. Cannot add yourself as a friend. 😂")
+                window.alert("Doh. Can't add yourself. 😂")
             }            
             else if (matchingRelationshipObj.length > 0 ){
-                window.alert("You are already friends!")
+                window.alert("Nope. You are already friends.")
             } 
             else {
                 const newFriend = {
