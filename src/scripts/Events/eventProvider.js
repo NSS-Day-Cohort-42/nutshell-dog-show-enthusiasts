@@ -16,7 +16,7 @@ export const dispatchChangeEvent = () => {
 export const useEventEntries = () => {
     const dateSorted = events.sort(
         (currentEvent, nextEvent) => 
-            Date.parse(nextEvent.timestamp) - Date.parse(currentEvent.timestamp)
+            Date.parse(nextEvent.date) - Date.parse(currentEvent.date)
     )
     return dateSorted.slice();
 }
