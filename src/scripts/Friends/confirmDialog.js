@@ -61,7 +61,12 @@ eventHub.addEventListener("click", event => {
 })
 
 
-// only works if button is direct child of dialog
-// or list and target .close to dialog box
-// event.target.parentNode.close()
-
+// hear click event `confirmedNo`
+// render close dialog box
+// note: event.target.parentNode.close() method only works if the button is a direct child of the dialog
+eventHub.addEventListener("click", event => {  
+    if (event.target.id === "confirmNoButton") {
+        console.log("heard `confirmedNo` click event")
+        event.target.parentNode.close()
+    }
+})
