@@ -14,6 +14,7 @@ eventHub.addEventListener("click", e => {
         const passwordVerify = document.querySelector("#register--password-verify").value
         const city = document.querySelector("#register--city").value
         const userStateCode = document.querySelector("#register--state").value
+        const userZip = document.querySelector("#register--userZip").value
 
         if (username !== ""
             && email !== ""
@@ -21,6 +22,7 @@ eventHub.addEventListener("click", e => {
             && passwordVerify !== ""
             && (password === passwordVerify)
             && city !== ""
+            && userZip !== ""
             && userStateCode !== "") {
 
             // Does the user exist?
@@ -39,7 +41,8 @@ eventHub.addEventListener("click", e => {
                             "email": email,
                             "password": password,
                             "city" : city,
-                            "state" : userStateCode
+                            "state" : userStateCode,
+                            "zipcode" : userZip
                         })
                     })
                         .then(response => response.json())
@@ -66,6 +69,7 @@ const render = () => {
             <input id="register--email" type="text" placeholder="Enter your email address">
             <input id="register--city" type="text" placeholder="Enter your city">
             <input id="register--state" type="text" placeholder="Enter your state">
+            <input id="register--userZip" type="text" placeholder="Enter your zip code">
             <input id="register--password" type="password" placeholder="Enter your password">
             <input id="register--password-verify" type="password" placeholder="Verify your password">
 
