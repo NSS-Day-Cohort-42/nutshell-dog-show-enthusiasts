@@ -9,6 +9,7 @@ import "./newsArticles/articleForm.js";
 import { friendList } from "./Friends/friendList.js";
 import { addFriendButton } from "./Friends/addFriendButton.js";
 import "./Friends/addFriendForm.js";
+import "./Friends/confirmDialog.js"
 
 import { articleList } from "./newsArticles/articleList.js";
 import "./publicChat/publicChatForm.js"
