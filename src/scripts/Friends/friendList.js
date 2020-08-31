@@ -1,7 +1,6 @@
 import { getUsers, useUsers } from "../Users/userProvider.js";
 import { getFriends, useFriends } from "../Friends/friendProvider.js";
 import { friendHTMLConverter } from "./friendHTMLConverter.js";
-import { confirmFriendDialog } from "./confirmFriendDialog.js";
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
@@ -28,12 +27,11 @@ const render = (allUsers, allRelationships) => {
     }
 
     contentTarget.innerHTML = `
-    <h2>Friends</h2>
-        <article id="friendList">
-        ${htmlRepresentations}
-        ${confirmFriendDialog()}
-        </article> 
-        `   
+        <h2>Friends</h2>
+            <article id="friendList">
+            ${htmlRepresentations}
+            </article> 
+    `   
 }
 
 

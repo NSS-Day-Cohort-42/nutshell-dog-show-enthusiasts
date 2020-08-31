@@ -37,7 +37,7 @@ const render = (messageArr, usersArr) => {
             // find the user that wrote the message
             const authorUserObject = usersArr.find(user => user.id === currentmessage.userId)
             // pass the user object to the HTML convertor method so we can pull out the username
-            console.log("author: ", authorUserObject)
+            // console.log("author: ", authorUserObject)
             return messagesHTMLConverter(currentmessage, authorUserObject)
             }  
         ).join("")
