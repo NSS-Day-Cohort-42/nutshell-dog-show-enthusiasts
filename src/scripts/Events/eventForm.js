@@ -70,9 +70,9 @@ export const eventsFormConverter = () => {
        
       CurrentDate.toLocaleDateString('en-US').replace(/\//g,"-")
     }"class="event__CompletionDate"></input> 
-    </form
     <button class="button__eventWeather">event weather</button>
     <button id="saveEvent">Save Event</button>
+    </form>
     `}
 
     export const weatherList = async (city) => {
