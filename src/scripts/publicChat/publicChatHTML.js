@@ -26,10 +26,11 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 
-export const messagesHTMLConverter = (messageObj) => {
+export const messagesHTMLConverter = (messageObj, user) => {
     return `
     <section class="message--board">
-        <div class="message__User">${ messageObj.userId }</div> 
+        <div class="message__User">Message from: ${user.username}</div> 
+        <div class="message__User">${messageObj.userId}</div> 
         <div class="message__Text">${messageObj.text}</div> 
     
         <button id='messageDelete--${ messageObj.id }'>Delete</button>
