@@ -35,10 +35,10 @@ eventHub.addEventListener("click", clickEvent => {
         const articleURL = document.querySelector("#article--url")
         const currentUser = sessionStorage.getItem("activeUser")
         const articleId = document.querySelector("#articleId")
-        // console.log("currentUser:", currentUser) --- this returned the Id of the user in the console
+
         if(articleTitle.value !== "" && articleSynopsis.value !== "" && articleURL.value !== "") {
 
-            if(articleId === "") {
+            if(articleId == "") {
 
                 const newArticle = {
                     // Key/value pairs here
@@ -60,6 +60,7 @@ eventHub.addEventListener("click", clickEvent => {
                     id: articleId  
                 }
                 editArticle(editedArticle)
+                render()
             }
         } else { 
             window.alert("Fill in all the fields!!!")

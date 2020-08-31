@@ -43,13 +43,14 @@ export const deleteArticle = (articleId) => {
         .then(dispatchStateChangeEvent)
 }
 
-export const editArticle = (article) => {
-    return fetch (`http://localhost:8088/messages/${article.id}`, {
+export const editArticle = (articles) => {
+    console.log(articles)
+    return fetch (`http://localhost:8088/articles/${articles.id}`, {
         method : "PUT",
         headers : {
             "Content-Type" : "application/json"
         },
-        body : JSON.stringify(article)
+        body : JSON.stringify(articles)
     })
         .then(getArticles)
         .then(dispatchStateChangeEvent)
