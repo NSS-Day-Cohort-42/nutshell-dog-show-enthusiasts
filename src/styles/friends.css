@@ -6,18 +6,14 @@
 } */
 
 .friends--list {
-    /* display: flex;
-    flex-direction: column; 
-    padding: 2rem; */
 }
 
 .friend__card {
-
+    display: flex;
+    justify-content: space-between;
 }
 
-
 .friends--addFriend {
-    /* padding: 2rem; */
 }
 
 /* .button__addFriend,
