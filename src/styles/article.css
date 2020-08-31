@@ -6,10 +6,41 @@
     border-radius: 20px;
     height: 30rem;
     overflow-y: auto;
-
 }
 
 .articleList { 
     display: flex;
     flex-direction: column;
+}
+
+.article--dashboard { 
+
+}
+
+.article__Title{ 
+    display: flex;
+    justify-content: center;
+}
+.article__Synopsis{ 
+    display: flex;
+    justify-content: center;
+}
+.article__url{ 
+    display: flex;
+    justify-content: center;
+}
+.article__url{ 
+    display: flex;
+    justify-content: center;
+}
+.deleteArticle{ 
+    display: flex;
+    justify-content: center;
+    margin-left: 8.2rem;
+}
+.editArticle{ 
+    display: flex;
+    justify-content: center;
+    margin-left: 8.7rem;
+
 }
