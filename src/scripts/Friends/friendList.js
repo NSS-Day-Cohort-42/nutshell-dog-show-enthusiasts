@@ -6,29 +6,42 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
 
 
+// filter all relationships to return only the ones for current user
+// convert the relationships to friend username with .map()
+// pass the relationshipObj and matching friend user obj through the friendHTMLConverter component
 const render = (allUsers, allRelationships) => {
-    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-    const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUserId)
     
-    const friendsArray = relationshipsForThisUser.map(relationship => {
-        const matchingUserObj = allUsers.find(user => user.id === relationship.friendUserId)
-        return matchingUserObj
-    })
+    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+    const filteredRelationships = allRelationships.filter(relationship => relationship.userId === currentUserId)
+    // console.log("filteredRelationships >>",filteredRelationships)
 
-    console.log("console log relationshipsForThisUser >>", relationshipsForThisUser)
-    console.log("console log friendsArray >>", friendsArray)
+    const htmlRepresentations = filteredRelationships.map(relationship => {
+        const friendObj = allUsers.find(user => user.id === relationship.friendUserId)
+        // console.log("friendObj >>",friendObj)
+        
+        return friendHTMLConverter(relationship,friendObj)
+    }).join("")
 
-    let htmlRepresentations = ""
-    friendsArray.forEach(friend => {
-        htmlRepresentations += friendHTMLConverter(friend)
-    })
+    // console.log("htmlRepresentations >>",htmlRepresentations)
 
+    if (filteredRelationships.length > 0) {
     contentTarget.innerHTML = `
         <h2>Friends</h2>
             <article id="friendList">
             ${htmlRepresentations}
             </article> 
     `    
+    }
+    else {
+        contentTarget.innerHTML = `
+        <h2>Friends</h2>
+            <article id="friendList">
+            Start adding friends below! 
+            </article> 
+    `   
+    }
+
+
 }
 
 
