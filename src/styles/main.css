@@ -30,7 +30,11 @@ body {
     justify-content: space-evenly;
 }
 
-.friends--container {
+.lower--container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.dashboardHeaders { 
+    font-size: 30px;
 }
