@@ -36,7 +36,8 @@ export const saveArticle = (article) => {
 
 
 export const deleteArticle = (articleId) => {
-    return fetch(`http://localhost:8088/articles/${ articleId }`, {
+    console.log(articleId)
+    return fetch(`http://localhost:8088/articles/${articleId}`, {
         method: "DELETE"
     })
         .then(getArticles)

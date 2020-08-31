@@ -15,7 +15,7 @@ eventHub.addEventListener("click", clickEvent => {
         const [prompt, editArticleId] = clickEvent.target.id.split("--")
         const editArticle = new CustomEvent("editArticleClicked", {
             detail : {
-                editArticleId : parseInt(editArticleId)
+                editArticleId: parseInt(editArticleId)
             }
         })
         

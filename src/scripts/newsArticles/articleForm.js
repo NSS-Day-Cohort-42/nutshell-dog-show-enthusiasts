@@ -14,37 +14,37 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("editArticleClicked", customEvent => {
    
     const allOfTheArticles = useArticles()
-    const articleToEdit = customEvent.detail.messageId
-    const articleObject = allOfTheArticles.find(article => article.id === articleToEdit)
-    
+    const articleToEditId = customEvent.detail.editArticleId
+    const articleObject = allOfTheArticles.find(article => article.id === articleToEditId)
+
     articleForm()
 
-    const articleTitle = document.querySelector("#article--Text")
-    const articleSynopsis = document.querySelector("#article--synopsis")
-    const articleUrl = document.querySelector("#article--url")
+    const articleTitleInput = document.querySelector("#article--title")
+    const articleSynopsisInput = document.querySelector("#article--synopsis")
+    const articleUrlInput = document.querySelector("#article--url")
+    const articleIdInput = document.querySelector("#articleId")
     
-    articleTitle.value = articleObject.title
-    articleSynopsis.value = articleObject.synopsis
-    articleUrl = articleObject.url
+    articleTitleInput.value = articleObject.title
+    articleSynopsisInput.value = articleObject.synopsis
+    articleUrlInput.value = articleObject.url
+    articleIdInput.value = articleObject.id
 })
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "save__Article") {
-        const articleTitle = document.querySelector("#article--title")
-        const articleSynopsis = document.querySelector("#article--synopsis")
-        const articleURL = document.querySelector("#article--url")
+        const articleTitle = document.querySelector("#article--title").value
+        const articleSynopsis = document.querySelector("#article--synopsis").value
+        const articleURL = document.querySelector("#article--url").value
         const currentUser = sessionStorage.getItem("activeUser")
-        const articleId = document.querySelector("#articleId")
-
-        if(articleTitle.value !== "" && articleSynopsis.value !== "" && articleURL.value !== "") {
-
-            if(articleId == "") {
-
+        const articleId = document.querySelector("#articleId").value
+        console.log(articleId)
+        
+        if(articleTitle !== "" && articleSynopsis !== "" && articleURL !== "") {
+            if(articleId === "") {
                 const newArticle = {
-                    // Key/value pairs here
-                    title: articleTitle.value,
-                    synopsis: articleSynopsis.value,
-                    url: articleURL.value,
+                    title: articleTitle,
+                    synopsis: articleSynopsis,
+                    url: articleURL,
                     timestamp: Date.now(), 
                     userId: parseInt(currentUser)             
                 }
@@ -52,9 +52,9 @@ eventHub.addEventListener("click", clickEvent => {
                 articleList()
             } else {
                 const editedArticle = {
-                    title: articleTitle.value,
-                    synopsis: articleSynopsis.value,
-                    url: articleURL.value,
+                    title: articleTitle,
+                    synopsis: articleSynopsis,
+                    url: articleURL,
                     timestamp: Date.now(), 
                     userId: parseInt(currentUser),
                     id: articleId  
