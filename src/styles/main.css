@@ -12,10 +12,10 @@ body {
     font-family:'Open Sans Condensed', sans-serif;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-direction: row;
-}
+} */
 
 .eventList {
     font-weight: bold;
@@ -24,4 +24,7 @@ body {
 }
 
 
-
+.dashboard { 
+    display: flex;
+    flex-direction: row;
+}
