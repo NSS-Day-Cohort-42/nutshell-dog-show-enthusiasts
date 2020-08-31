@@ -1,0 +1,14 @@
+.tasks--container { 
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    border: 1px solid black;
+    width: 20rem;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+#taskCreationForm { 
+    display: flex;
+    flex-direction: column;
+}
