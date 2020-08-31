@@ -14,6 +14,11 @@ export const useEventEntries = () => {
 }
 
 
+export const getEventById =  async (id) => {
+    const response = await fetch(`http://localhost:8088/events/${id}`);
+    return await response.json();
+    
+}
 
 
 
@@ -25,7 +30,7 @@ export const getEventEntries =  async () => {
 
     export const saveEvents =  (event) => {
         const jsonEntry = JSON.stringify(event)
-    
+    console.log(jsonEntry)
          return fetch('http://localhost:8088/events',{
             method: 'POST',
                 headers: {

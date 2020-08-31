@@ -1,10 +1,38 @@
 
 
 
-export const getWeather =  async (zipCode) => {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=c03577aea5fe97f6b7f7284326a61b8c`);
-    const parsedEvents = await response.json();
-    events = parsedEvents;
+
+let weather = []
+
+
+export const useWeather = () => {
+    return weather.slice()
+
 }
 
-getWeather(37216)
+
+
+
+
+export const getWeather = async (city) => {
+    try {
+
+
+        const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=1de141ef043944419d1173ca59f6ef0e&units=I#`);
+        const parsedWeather = await response.json();
+      
+        weather = parsedWeather.data
+      weather = weather.map(weatherObj => {
+         return { temp: weatherObj.temp,
+                  description: weatherObj.weather.description,
+                  icon: weatherObj.weather.icon
+                  
+                }            
+      })
+      console.log(weather)
+    } catch (error) {
+        throw error
+    }
+}
+
+
