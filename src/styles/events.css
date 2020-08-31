@@ -7,3 +7,8 @@
     border: 1px solid black;
     overflow-y: auto;
 }
+
+.eventForm { 
+    display: flex;
+    flex-direction: column;
+}
