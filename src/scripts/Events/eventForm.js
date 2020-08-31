@@ -62,7 +62,7 @@ export const eventsFormConverter = () => {
    const CurrentDate =  new Date()
    CurrentDate.setDate(CurrentDate.getDate() + 7)
     return ` 
-    <form>
+    <form class="eventForm">
     <input type="text" class="eventTitle" placeholder="Event Title"></input>
     <input type ="text" class="eventLocation" placeholder="location"></input>
     <input type="date" min="${new Date().toLocaleDateString('en-US').replace(/\//g,"-")}"  max="
@@ -70,9 +70,9 @@ export const eventsFormConverter = () => {
        
       CurrentDate.toLocaleDateString('en-US').replace(/\//g,"-")
     }"class="event__CompletionDate"></input> 
-    </form
     <button class="button__eventWeather">event weather</button>
     <button id="saveEvent">Save Event</button>
+    </form>
     `}
 
     export const weatherList = async (city) => {

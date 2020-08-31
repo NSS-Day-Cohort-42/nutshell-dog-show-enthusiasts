@@ -56,10 +56,10 @@ eventHub.addEventListener("click", e => {
 const render = () => {
     contentTarget.innerHTML += `
         <section class="register">
-            <input id="register--username" type="text" placeholder="Enter your username">
-            <input id="register--email" type="text" placeholder="Enter your email address">
-            <input id="register--password" type="password" placeholder="Enter your password">
-            <input id="register--password-verify" type="password" placeholder="Verify your password">
+            <input id="register--username" type="text" placeholder="New Username">
+            <input id="register--email" type="text" placeholder="Email">
+            <input id="register--password" type="password" placeholder="Password">
+            <input id="register--password-verify" type="password" placeholder="Verify Password">
 
             <button id="register--button">Register</button>
         </section>
