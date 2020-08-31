@@ -5,7 +5,7 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--addFriend")
 
 // hear "addFriendClicked" + render addFriendForm()
-eventHub.addEventListener("addFriendClicked", event => { 
+eventHub.addEventListener("showFriendForm", event => { 
     addFriendForm()
 })
 
@@ -33,8 +33,8 @@ contentTarget.addEventListener("click", event => {
             const friendUserId = friendUserObj.id
 
             const matchingRelationshipObj =  filteredRelationships.filter(relationship => relationship.friendUserId === friendUserId)
-            console.log("matchingRelationshipObj >>",matchingRelationshipObj)
-            console.log("matchingRelationshipObj.length >>",matchingRelationshipObj.length)
+            // console.log("matchingRelationshipObj >>",matchingRelationshipObj)
+            // console.log("matchingRelationshipObj.length >>",matchingRelationshipObj.length)
 
 
             if (friendUserId === currentUserId){
@@ -50,7 +50,6 @@ contentTarget.addEventListener("click", event => {
                 }   
              
                 saveFriend(newFriend)
-                console.log("new friend saved: ",friendUsername.value)
                 render()      
             }                 
         }

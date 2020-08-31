@@ -1,6 +1,7 @@
 import { getUsers, useUsers } from "../Users/userProvider.js";
 import { getFriends, useFriends } from "../Friends/friendProvider.js";
 import { friendHTMLConverter } from "./friendHTMLConverter.js";
+import { confirmFriendDialog } from "./confirmFriendDialog.js";
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
@@ -15,33 +16,24 @@ const render = (allUsers, allRelationships) => {
     const filteredRelationships = allRelationships.filter(relationship => relationship.userId === currentUserId)
     // console.log("filteredRelationships >>",filteredRelationships)
 
-    const htmlRepresentations = filteredRelationships.map(relationship => {
-        const friendObj = allUsers.find(user => user.id === relationship.friendUserId)
-        // console.log("friendObj >>",friendObj)
-        
-        return friendHTMLConverter(relationship,friendObj)
-    }).join("")
-
-    // console.log("htmlRepresentations >>",htmlRepresentations)
+    let htmlRepresentations = "Start adding friends below!"
 
     if (filteredRelationships.length > 0) {
+        htmlRepresentations = filteredRelationships.map(relationship => {
+            const friendObj = allUsers.find(user => user.id === relationship.friendUserId)
+            // console.log("friendObj >>",friendObj)
+            
+            return friendHTMLConverter(relationship,friendObj)
+        }).join("")
+    }
+
     contentTarget.innerHTML = `
-        <h2>Friends</h2>
-            <article id="friendList">
-            ${htmlRepresentations}
-            </article> 
-    `    
-    }
-    else {
-        contentTarget.innerHTML = `
-        <h2>Friends</h2>
-            <article id="friendList">
-            Start adding friends below! 
-            </article> 
-    `   
-    }
-
-
+    <h2>Friends</h2>
+        <article id="friendList">
+        ${htmlRepresentations}
+        </article> 
+        ${confirmFriendDialog()}
+        `   
 }
 
 
