@@ -41,6 +41,7 @@ export const render = (arr) => {
     //  return eventRender(values)
     // }).join("")
     // contentTarget.innerHTML = allEventsHtml
+    if(arr.length >= 1) {
     const first = arr.pop()
         const html = eventRender(first)
         contentTarget.innerHTML = html
@@ -48,6 +49,14 @@ export const render = (arr) => {
             return eventRender(values)
         }).join("")
         contentTargetTwo.innerHTML = restOfEvents
+    } else {
+        const restOfEvents = arr.reverse().map(values => {
+            return eventRender(values)
+        }).join("")
+        contentTarget.innerHTML = restOfEvents
+    }
+        
+    
 }
 
 
