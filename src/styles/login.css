@@ -7,5 +7,17 @@
 .login {
     display: flex;
     flex-direction: column;
-    width: 45%
+    padding: 5px;
+    border: black 1px solid;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: black 1px solid;
+    margin-top: 2rem;
+    border-radius: 1rem;
 }
