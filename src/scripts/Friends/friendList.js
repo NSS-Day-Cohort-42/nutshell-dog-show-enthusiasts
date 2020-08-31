@@ -1,34 +1,39 @@
 import { getUsers, useUsers } from "../Users/userProvider.js";
 import { getFriends, useFriends } from "../Friends/friendProvider.js";
 import { friendHTMLConverter } from "./friendHTMLConverter.js";
+import { confirmFriendDialog } from "./confirmFriendDialog.js";
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".friends--list")
 
 
+// filter all relationships to return only the ones for current user
+// convert the relationships to friend username with .map()
+// pass the relationshipObj and matching friend user obj through the friendHTMLConverter component
 const render = (allUsers, allRelationships) => {
-    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-    const relationshipsForThisUser = allRelationships.filter(relationship => relationship.userId === currentUserId)
     
-    const friendsArray = relationshipsForThisUser.map(relationship => {
-        const matchingUserObj = allUsers.find(user => user.id === relationship.friendUserId)
-        return matchingUserObj
-    })
+    const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+    const filteredRelationships = allRelationships.filter(relationship => relationship.userId === currentUserId)
+    // console.log("filteredRelationships >>",filteredRelationships)
 
-    console.log("console log relationshipsForThisUser >>", relationshipsForThisUser)
-    console.log("console log friendsArray >>", friendsArray)
+    let htmlRepresentations = "Start adding friends below!"
 
-    let htmlRepresentations = ""
-    friendsArray.forEach(friend => {
-        htmlRepresentations += friendHTMLConverter(friend)
-    })
+    if (filteredRelationships.length > 0) {
+        htmlRepresentations = filteredRelationships.map(relationship => {
+            const friendObj = allUsers.find(user => user.id === relationship.friendUserId)
+            // console.log("friendObj >>",friendObj)
+            
+            return friendHTMLConverter(relationship,friendObj)
+        }).join("")
+    }
 
     contentTarget.innerHTML = `
-        <h2>Friends</h2>
-            <article id="friendList">
-            ${htmlRepresentations}
-            </article> 
-    `    
+    <h2>Friends</h2>
+        <article id="friendList">
+        ${htmlRepresentations}
+        </article> 
+        ${confirmFriendDialog()}
+        `   
 }
 
 
