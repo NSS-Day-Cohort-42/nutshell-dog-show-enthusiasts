@@ -12,12 +12,16 @@ eventHub.addEventListener("click", e => {
         const email = document.querySelector("#register--email").value
         const password = document.querySelector("#register--password").value
         const passwordVerify = document.querySelector("#register--password-verify").value
+        const city = document.querySelector("#register--city").value
+        const userStateCode = document.querySelector("#register--state").value
 
         if (username !== ""
             && email !== ""
             && password !== ""
             && passwordVerify !== ""
-            && (password === passwordVerify)) {
+            && (password === passwordVerify)
+            && city !== ""
+            && userStateCode !== "") {
 
             // Does the user exist?
             fetch(`http://localhost:8088/users?username=${username}`)
@@ -33,7 +37,9 @@ eventHub.addEventListener("click", e => {
                         body: JSON.stringify({
                             "username": username,
                             "email": email,
-                            "password": password
+                            "password": password,
+                            "city" : city,
+                            "state" : userStateCode
                         })
                     })
                         .then(response => response.json())
@@ -58,6 +64,8 @@ const render = () => {
         <section class="register">
             <input id="register--username" type="text" placeholder="Enter your username">
             <input id="register--email" type="text" placeholder="Enter your email address">
+            <input id="register--city" type="text" placeholder="Enter your city">
+            <input id="register--state" type="text" placeholder="Enter your state">
             <input id="register--password" type="password" placeholder="Enter your password">
             <input id="register--password-verify" type="password" placeholder="Verify your password">
 

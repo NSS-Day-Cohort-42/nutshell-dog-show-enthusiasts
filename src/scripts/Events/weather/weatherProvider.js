@@ -35,4 +35,8 @@ export const getWeather = async (city) => {
     }
 }
 
+export const welcomeWeather = (postalCode) => {
+    return fetch()
+}
+
 
