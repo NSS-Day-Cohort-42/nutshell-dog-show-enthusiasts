@@ -1,4 +1,4 @@
-import {getWeather, useWeather} from "../Events/weather/weatherProvider.js"
+import {getWelcomeWeather, useWelcomeWeather} from "../Events/weather/weatherProvider.js"
 import {getUsers, useUsers} from "../Users/userProvider.js"
 
 const contentTarget = document.querySelector(".welcome__weather")
@@ -6,9 +6,9 @@ const eventHub = document.querySelector(".container")
 
 export const WelcomeWeather = () => {
     getUsers()
-    .then(getWeather)
+    .then(getWelcomeWeather)
     users = useUsers()
-    weather = useWeather()
+    welcomeWeatherData = useWelcomeWeather()
     render()
 }
 

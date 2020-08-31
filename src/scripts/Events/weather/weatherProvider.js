@@ -35,8 +35,17 @@ export const getWeather = async (city) => {
     }
 }
 
-export const welcomeWeather = (postalCode) => {
-    return fetch()
+let dayWeather = []
+
+export const getWelcomeWeather = (user) => {
+    return fetch(`https://api.weatherbit.io/v2.0/forecast/daily?postal_code=${user.postalCode}&key=${key.weatherKey}&units=I#`)
+        .then(response => response.json())
+        .then(parsedWeather => {
+            dayWeather = parsedWeather.list
+        })
 }
 
+export const useWelcomeWeather = () => {
+    return dayWeather.slice()
+}
 
