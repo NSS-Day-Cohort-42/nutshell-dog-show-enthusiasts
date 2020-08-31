@@ -1,4 +1,4 @@
-
+import key from'../../Settings.js'
 
 
 
@@ -18,7 +18,7 @@ export const getWeather = async (city) => {
     try {
 
 
-        const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=1de141ef043944419d1173ca59f6ef0e&units=I#`);
+        const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${key.weatherKey}&units=I#`);
         const parsedWeather = await response.json();
       
         weather = parsedWeather.data
