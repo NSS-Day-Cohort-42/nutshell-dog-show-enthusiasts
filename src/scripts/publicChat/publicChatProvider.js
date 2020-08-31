@@ -29,13 +29,26 @@ export const saveMessage = (message) => {
         },
         body: JSON.stringify(message)
     })
-    .then(getMessages)
-    .then(dispatchStateChangeEvent) 
+        .then(getMessages)
+        .then(dispatchStateChangeEvent) 
 }
 
 export const deleteMessages = (messageId) => {
-    return fetch(`http://localhost:8088/messages/${ messageId }`, {
+    return fetch(`http://localhost:8088/messages/${messageId}`, {
         method: "DELETE"
+    })
+        .then(getMessages)
+        .then(dispatchStateChangeEvent)
+}
+
+export const editMessages = (message) => {
+    console.log(message)
+    return fetch (`http://localhost:8088/messages/${message.id}`, {
+        method : "PUT",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(message)
     })
         .then(getMessages)
         .then(dispatchStateChangeEvent)

@@ -36,8 +36,22 @@ export const saveArticle = (article) => {
 
 
 export const deleteArticle = (articleId) => {
-    return fetch(`http://localhost:8088/articles/${ articleId }`, {
+    console.log(articleId)
+    return fetch(`http://localhost:8088/articles/${articleId}`, {
         method: "DELETE"
+    })
+        .then(getArticles)
+        .then(dispatchStateChangeEvent)
+}
+
+export const editArticle = (articles) => {
+    console.log(articles)
+    return fetch (`http://localhost:8088/articles/${articles.id}`, {
+        method : "PUT",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(articles)
     })
         .then(getArticles)
         .then(dispatchStateChangeEvent)

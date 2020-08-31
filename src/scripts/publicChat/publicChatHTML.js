@@ -10,16 +10,31 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+eventHub.addEventListener("click", clickEvent => {
+    
+    if(clickEvent.target.id.includes("editMessage--")) {
+        const [prompt, messageId] = clickEvent.target.id.split("--")
+        const editMessage = new CustomEvent("editMessageClicked", {
+            detail : {
+                messageId : parseInt(messageId)
+            }
+        })
+        
+        eventHub.dispatchEvent(editMessage)
+                
+    }
+})
 
 
-
-export const messagesHTMLConverter = (messageObj) => {
+export const messagesHTMLConverter = (messageObj, user) => {
     return `
     <section class="message--board">
-        <div class="message__User">${ messageObj.userId }</div> 
+        <div class="message__User">Message from: ${user.username}</div> 
+        <div class="message__User" style="display: none" >${messageObj.userId}</div> 
         <div class="message__Text">${messageObj.text}</div> 
     
         <button id='messageDelete--${ messageObj.id }'>Delete</button>
+        <button id="editMessage--${ messageObj.id }">Edit</button>
     </section>
     `
 }
