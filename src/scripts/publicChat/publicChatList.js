@@ -11,14 +11,18 @@ export const messageList = () => {
     getMessages()
     .then(() => { 
         const allMessages = useMessages()
-        findAuthorUsers(allMessages) // rendering all articles to put into the DOM 
+        //now that we have messages, we need to get users to show in the chat
+        //called a method to fetch all the users and passed the messages so we can render it in the next promise
+        findAuthorUsers(allMessages) 
     })
 }
-
-const findAuthorUsers = (messagesArray) => {
+//created a new promise to get the users 
+export const findAuthorUsers = (messagesArray) => {
     getUsers()
     .then(() => {
-        allUsers = useUsers()
+        allUsers = useUsers() 
+        //now we have all the messages and all of the users
+        //passed both the messages and the users to the render function
         render(messagesArray, allUsers)
     })
 }
@@ -41,6 +45,6 @@ const render = (messageArr, usersArr) => {
 }
 
 eventHub.addEventListener("messageStateChanged", CustomEvent => {
-    const deletedMessages = useMessages()
-    render(deletedMessages)
+    const messages = useMessages()
+    findAuthorUsers(messages) //called findAuthorUsers instead of render so we could get the users before rendering
 })

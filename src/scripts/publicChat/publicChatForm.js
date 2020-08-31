@@ -50,6 +50,7 @@ const sendMessage = () => {
     if (messageText.value !== "") {
         // checking if message id exists...if not, create as new message. if it exists, they are editing an existing message
         if (messageId == "") {
+            console.log("creating a new message")
             const newMessage = {
                 // Key/value pairs here
                 text: messageText.value,
