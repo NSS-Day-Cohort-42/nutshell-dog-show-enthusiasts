@@ -18,7 +18,7 @@ const render = (articleArr) => {
     const sortedArticles = articleArr.sort((a,b) => {
         return b.timestamp - a.timestamp
     })
-        console.log(sortedArticles)
+        // console.log(sortedArticles)
 
     const allArticlesHtml = sortedArticles.map (
         (currentArticle) => {

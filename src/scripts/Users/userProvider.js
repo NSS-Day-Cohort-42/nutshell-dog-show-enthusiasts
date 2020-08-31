@@ -9,4 +9,3 @@ export const getUsers = () => {
         .then(response => response.json())
         .then(data => users = data)
 }
-
