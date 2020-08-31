@@ -8,35 +8,34 @@ const contentTarget = document.querySelector(".friend__confirmDialogBox")
 // hear "chatAuthorClicked"
 // display dialog box for user to confirm Y/N
 eventHub.addEventListener("chatAuthorClicked", event => {   
-    console.log("hear chatAuthorClicked event") 
-    const friendUserId = event.detail.chatAuthorId 
-
-    const allUsers = useUsers()
-    const friendObj = allUsers.filter(user => {return user.id === friendUserId})
+    // console.log("hear chatAuthorClicked event") 
     
-    const htmlRepresentation = (friendUserId) => {
+    const allUsers = useUsers()
+    
+    const authorUserId = parseInt(event.detail.chatAuthorId)
+    console.log("authorUserId >>",authorUserId) 
 
-            return `
-                <section>So you really want to add ${friendObj.username}? Pleaes confirm.</section>
-                <button class="button__confirmFriend" id="confirmYesButton--friendUserId--${friendUserId}">Yes</button>
-                <button class="button__confirmFriend" id="confirmNoButton">No</button>
-            `
-        }
+    const friendObj = allUsers.find(user => user.id === authorUserId)
+    console.log("friendObj >>",friendObj) 
+    
+    const htmlRepresentation = `
+        <section>Do you want, do you really really want to add ${friendObj.username}? <br>Pleaes confirm.</section>
+        <button class="button__confirmFriend" id="confirmYesButton--authorUserId--${friendObj.id}">Yes</button>
+        <button class="button__confirmFriend" id="confirmNoButton">No</button>
+    `
 
-        contentTarget.innerHTML = htmlRepresentation
+    contentTarget.innerHTML = htmlRepresentation
 
-        console.log("friendObj",friendObj)
-        // show dialog box
-        contentTarget.showModal()
+    contentTarget.showModal()
 })
 
  
-// hear click event `confirmedYes` (note that `confirmedNo` is irrelevant)
-// display dialog using .showModal() 
+// hear click event `confirmedYes`
 // render saveFriend() 
 eventHub.addEventListener("click", event => {  
     if (event.target.id.startsWith("confirmYesButton--")) {
-        const [prompt1, prompt2, friendUserId] = event.target.id.split("--")
+        const [prompt1, prompt2, authorUserId] = event.target.id.split("--")
+        const friendUserId = parseInt(authorUserId)
         
         const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
         
