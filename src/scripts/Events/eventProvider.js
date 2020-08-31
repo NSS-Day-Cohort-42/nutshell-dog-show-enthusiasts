@@ -9,8 +9,16 @@ export const dispatchChangeEvent = () => {
     eventHub.dispatchEvent(eventStateChanged)
 }
 
+// export const useEventEntries = () => {
+//     return events.slice();
+// }
+//sorts by events by date
 export const useEventEntries = () => {
-    return events.slice();
+    const dateSorted = events.sort(
+        (currentEvent, nextEvent) => 
+            Date.parse(nextEvent.timestamp) - Date.parse(currentEvent.timestamp)
+    )
+    return dateSorted.slice();
 }
 
 

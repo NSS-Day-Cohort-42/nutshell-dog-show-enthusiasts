@@ -15,3 +15,11 @@ body {
     flex-direction: row;
 }
 
+.eventList {
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: lavender
+}
+
+
+
