@@ -9,7 +9,7 @@
 
 }
 
-.article--dashboard { 
+.articleList { 
     display: flex;
     flex-direction: column;
 }
