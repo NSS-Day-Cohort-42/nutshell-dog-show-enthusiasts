@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 @import "./header.css";
 @import "./login.css";
+@import "./tasks.css";
+@import "./events.css";
+@import "./article.css";
+
 
 
 .event__CardContainer {
