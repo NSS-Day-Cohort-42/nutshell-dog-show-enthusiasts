@@ -56,7 +56,6 @@ const render = () => {
         })
         
     contentTarget.innerHTML = `
-        <h2>Tasks</h2>
         ${toDom}
 
     `

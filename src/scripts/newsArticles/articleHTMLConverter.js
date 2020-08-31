@@ -32,8 +32,8 @@ export const articleHTMLConverter = (articleObject) => {
             <div class="article__Synopsis">Synopsis: ${articleObject.synopsis}</div> 
             <div class="article__url">url: ${articleObject.url}</div>
             
-            <button id='delete--${ articleObject.id }'>Delete</button>
-            <button id='edit--${ articleObject.id }'>Edit</button>
+            <button class="deleteArticle" id='delete--${ articleObject.id }'>Delete</button>
+            <button class="editArticle" id='edit--${ articleObject.id }'>Edit</button>
         </section>
     `
 }

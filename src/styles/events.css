@@ -1,0 +1,14 @@
+.events--container { 
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    width: 20rem;
+    border-radius: 20px;
+    border: 1px solid black;
+    overflow-y: auto;
+}
+
+.eventForm { 
+    display: flex;
+    flex-direction: column;
+}

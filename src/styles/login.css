@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+
+input{
+    text-align: center;
+ }
+
+.auth { 
+    display: flex;
+    margin-top: 10rem;
+    margin-left: 35%;
+    flex-direction: row;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: black 1px solid;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    margin-right: 4rem;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: black 1px solid;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+#login--button {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #b0b0b0 5%, #f6f6f6 100%);
+	background-color:#b0b0b0;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:'Open Sans Condensed', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+#login--button:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #b0b0b0 100%);
+	background-color:#f6f6f6;
+}
+#register--button {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #b0b0b0 5%, #f6f6f6 100%);
+	background-color:#b0b0b0;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:'Open Sans Condensed', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+#register--button:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #b0b0b0 100%);
+}

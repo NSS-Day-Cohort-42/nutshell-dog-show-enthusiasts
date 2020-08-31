@@ -1,0 +1,6 @@
+.welcome--container { 
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    letter-spacing: 7px;
+}
