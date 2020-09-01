@@ -1,5 +1,7 @@
 import { useArticles, getArticles } from "./articleProvider.js";
 import { articleHTMLConverter } from "./articleHTMLConverter.js";
+import { useFriends, getFriends } from "../Friends/friendProvider.js";
+
 
 const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
@@ -12,7 +14,8 @@ export const articleList = () => {
         render(allArticles) // rendering all articles to put into the DOM 
     })
 }
-                            
+
+                           
 // converting all of the article objects to HTML 
 const render = (articleArr) => {
     const sortedArticles = articleArr.sort((a,b) => {

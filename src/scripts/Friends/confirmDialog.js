@@ -13,10 +13,10 @@ eventHub.addEventListener("chatAuthorClicked", event => {
     const allUsers = useUsers()
     
     const authorUserId = parseInt(event.detail.chatAuthorId)
-    // console.log("authorUserId >>",authorUserId) 
+    // console.log("authorUserId",authorUserId) 
 
     const friendObj = allUsers.find(user => user.id === authorUserId)
-    // console.log("friendObj >>",friendObj) 
+    // console.log("friendObj",friendObj) 
     
     const htmlRepresentation = `
         <section>Do you want do you really really want to add ${friendObj.username}? <br>Pleaes confirm.</section>
@@ -56,6 +56,7 @@ eventHub.addEventListener("click", event => {
         }
         else {
             saveFriend(newFriend)
+            event.target.parentNode.close()
         }
     }
 })
