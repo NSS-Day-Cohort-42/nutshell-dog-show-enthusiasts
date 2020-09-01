@@ -29,7 +29,9 @@ const render = () => {
     .then(() => {
         const dailyWeather = useWelcomeWeather()
         const welcomeLanding = dailyWeather[0]
-        const html = welcomeHTMLConverter(welcomeLanding)
+        const matchedDescription = welcomeLanding.weather.icon
+        
+        const html = welcomeHTMLConverter(welcomeLanding, matchedDescription)
         contentTarget.innerHTML = html
         
     })
