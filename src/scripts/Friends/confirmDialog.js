@@ -34,6 +34,7 @@ eventHub.addEventListener("chatAuthorClicked", event => {
 // render saveFriend() 
 eventHub.addEventListener("click", event => {  
     if (event.target.id.startsWith("confirmYesButton--")) {
+        
         const [prompt1, prompt2, authorUserId] = event.target.id.split("--")
         const friendUserId = parseInt(authorUserId)
         
@@ -58,6 +59,7 @@ eventHub.addEventListener("click", event => {
             saveFriend(newFriend)
             event.target.parentNode.close()
         }
+        event.target.parentNode.close()
     }
 })
 
