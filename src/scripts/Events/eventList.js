@@ -32,36 +32,60 @@ export const eventList = () => {
 
 }
 
-export const render = (arr) => {
-   
+export const render = (events) => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const allEvents = useEventEntries()
+    //filter userID and active user
+    const eventsPerId = allEvents
+        .filter(event => event.userId === parseInt(activeUser))
+            if(eventsPerId.length >= 1) {
+                const first = eventsPerId.pop()
+                console.log(first)
+                const html = eventRender(first)
+                contentTarget.innerHTML = html
+                const restOfEvents = eventsPerId.reverse().map(values => {
+                    return eventRender(values)
+                }).join("")
+                contentTargetTwo.innerHTML = restOfEvents
+                
+            } else {
+                const restOfEvents = eventsPerId.reverse().map(values => {
+                    return eventRender(values)
+                }).join("")
+                contentTarget.innerHTML = restOfEvents
+            }
+}
+    
     //     const sorter = arr.sort((a,b) => {
-    //         return b.date - a.date
-    //     })
-    // const allEventsHtml =  sorter.map(values => {
-    //  return eventRender(values)
-    // }).join("")
-    // contentTarget.innerHTML = allEventsHtml
-    if(arr.length >= 1) {
-    const first = arr.pop()
-        const html = eventRender(first)
-        contentTarget.innerHTML = html
-        const restOfEvents = arr.reverse().map(values => {
-            return eventRender(values)
-        }).join("")
-        contentTargetTwo.innerHTML = restOfEvents
-    } else {
-        const restOfEvents = arr.reverse().map(values => {
-            return eventRender(values)
-        }).join("")
-        contentTarget.innerHTML = restOfEvents
-    }
+        //         return b.date - a.date
+        //     })
+        // const allEventsHtml =  sorter.map(values => {
+            //  return eventRender(values)
+            // }).join("")
+            // contentTarget.innerHTML = allEventsHtml
+            //if(arr.length >= 1) {
+        //         const first = arr.pop()
+        // const html = eventRender(first)
+        // contentTarget.innerHTML = html
+        //     .forEach(event => {
+        //         toDom += eventRender(event)
+        //     })
+        
+    //     contentTargetTwo.innerHTML = restOfEvents
+    // } else {
+    //     const restOfEvents = arr.reverse().map(values => {
+    //         return eventRender(values)
+    //     }).join("")
+    //     contentTarget.innerHTML = restOfEvents
+    // }
         
     
-}
 
 
 
- 
+    // const restOfEvents = arr.reverse().map(values => {
+    //     return eventRender(values)
+    // }).join("")
 
 
 

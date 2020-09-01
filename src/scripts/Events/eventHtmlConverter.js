@@ -1,5 +1,8 @@
-import { deleteEvent, getEventById } from "./eventProvider.js"
+import { deleteEvent, getEventById, getEventEntries, useEventEntries } from "./eventProvider.js"
 import { getWeather, useWeather } from "./weather/weatherProvider.js"
+//import { welcomeHTMLConverter } from "../Welcome/welcomeHTMLCon.js"
+import {weatherHtmlConverter} from "../Events/weather/weatherHtmlConverter.js"
+
 
 const eventHub = document.querySelector('.container')
 
@@ -12,11 +15,23 @@ eventHub.addEventListener('click', clickEvent  => {
     
 })
 
-eventHub.addEventListener('click', async clickEvent => {
+const contentTarget = document.querySelector(".weatherDisplay")
+eventHub.addEventListener('click', clickEvent => {
 if (clickEvent.target.id.startsWith('showWeather--')) {
 const [promp, eventObjId] = clickEvent.target.id.split("--")
-const myEvents = await getEventById(eventObjId)
-console.log(myEvents)
+const myEventId = parseInt(eventObjId)
+const allEvents = useEventEntries()
+const selectedEvent = allEvents.find(event => event.id === myEventId)
+getWeather(selectedEvent)
+    .then(() => {
+        const dayOfWeather = useWeather()
+        const findDate = dayOfWeather.filter(day => day.valid_date === selectedEvent.date)
+        const eventWeather = findDate[0]
+        const html = weatherHtmlConverter(eventWeather)
+        console.log(html)
+        contentTarget.innerHTML = html
+        
+    })
 }}
 )
 

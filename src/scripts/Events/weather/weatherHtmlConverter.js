@@ -1,4 +1,10 @@
-const weatherHtml = (weatherObj) => {
-    return `  <div${weatherObj[0].description}></div$>`
-         `  <div${weatherObj[0].temp}></div$>`
+export const weatherHtmlConverter = (weatherObj) => {
+    return `
+        
+            <div>High: ${weatherObj.high_temp}</div>
+            <div> Low: ${weatherObj.low_temp}</div>
+            <div> ${weatherObj.weather.description}</div>
+            
+        
+    `
  }
