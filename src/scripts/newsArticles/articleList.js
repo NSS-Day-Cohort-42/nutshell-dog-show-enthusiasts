@@ -8,7 +8,7 @@ export const articleList = () => {
     getArticles()
     .then(() => { 
         const allArticles = useArticles()
-        console.log(allArticles)
+        // console.log(allArticles)
         render(allArticles) // rendering all articles to put into the DOM 
     })
 }
