@@ -17,6 +17,7 @@
 .friend__card {
     display: flex;
     justify-content: space-between;
+    margin: 4% 0 4% 0;
 }
 
 .friends--addFriend {
