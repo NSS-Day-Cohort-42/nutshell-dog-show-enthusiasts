@@ -33,8 +33,8 @@ export const messagesHTMLConverter = (messageObj, user) => {
     <div class="message__User" style="display: none" >${messageObj.userId}</div> 
     <div class="message__Text">${messageObj.text}</div> 
     
-    <button id='messageDelete--${ messageObj.id }'>Delete</button>
-    <button id="editMessage--${ messageObj.id }">Edit</button>
+    <button class="button__deleteChatMessage" id='messageDelete--${ messageObj.id }'>Delete</button>
+    <button class="button__editChatMessage" id="editMessage--${ messageObj.id }">Edit</button>
     </section>
     `
 }

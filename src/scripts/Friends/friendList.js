@@ -27,7 +27,7 @@ const render = (allUsers, allRelationships) => {
     }
 
     contentTarget.innerHTML = `
-        <h2>Friends</h2>
+        <h1 class="dashboardHeaders">Friends</h1>
             <article id="friendList">
             ${htmlRepresentations}
             </article> 

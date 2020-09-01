@@ -1,10 +1,11 @@
-@import "./friends.css";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+@import "./friends.css";
 @import "./header.css";
 @import "./login.css";
 @import "./tasks.css";
 @import "./events.css";
 @import "./article.css";
+@import "./publicChat.css";
 
 
 

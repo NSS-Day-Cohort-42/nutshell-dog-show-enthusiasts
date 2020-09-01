@@ -6,6 +6,7 @@
     width: 20rem;
     border-radius: 20px;
     overflow-y: auto;
+    margin: 15px;
 }
 
 #taskCreationForm { 

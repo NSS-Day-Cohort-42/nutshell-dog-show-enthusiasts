@@ -6,6 +6,7 @@
     border-radius: 20px;
     height: 30rem;
     overflow-y: auto;
+    margin: 15px;
 }
 
 .articleList { 
