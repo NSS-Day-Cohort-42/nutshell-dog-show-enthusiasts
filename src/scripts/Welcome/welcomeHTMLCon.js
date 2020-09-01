@@ -1,3 +1,5 @@
+//Mark S.
+//This converts objects with HTML tags to be passed to the DOM
 
 
 export const welcomeHTMLConverter = (weatherObj, iconCode) => {
