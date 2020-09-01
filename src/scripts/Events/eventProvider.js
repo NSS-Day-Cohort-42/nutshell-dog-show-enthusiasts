@@ -22,10 +22,15 @@ export const useEventEntries = () => {
 }
 
 
-export const getEventById =  async (id) => {
-    const response = await fetch(`http://localhost:8088/events/${id}`);
-    return await response.json();
+// export const getEventById =  async (id) => {
+//     const response = await fetch(`http://localhost:8088/events/${id}`);
+//     return await response.json();
     
+// }
+export const getEventById = (id) => {
+    return fetch(`http://localhost:8088/events/${id}`)
+        .then(response => response.json())
+        .then(data => events = data)
 }
 
 

@@ -3,6 +3,7 @@ import { articleHTMLConverter } from "./articleHTMLConverter.js";
 import { useFriends, getFriends } from "../Friends/friendProvider.js";
 
 
+
 const contentTarget = document.querySelector(".articleList")
 const eventHub = document.querySelector(".container")
 
@@ -17,8 +18,11 @@ export const articleList = () => {
 
                            
 // converting all of the article objects to HTML 
-const render = (articleArr) => {
-    const sortedArticles = articleArr.sort((a,b) => {
+const render = (articleArrary) => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const allArticles = useArticles()
+    const articlesPerId = allArticles.filter(article => article.userId === parseInt(activeUser))
+    const sortedArticles = articlesPerId.sort((a,b) => {
         return b.timestamp - a.timestamp
     })
         // console.log(sortedArticles)
