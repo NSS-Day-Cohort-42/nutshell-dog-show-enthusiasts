@@ -29,12 +29,16 @@ eventHub.addEventListener("click", clickEvent => {
 export const messagesHTMLConverter = (messageObj, user) => {
     return `
     <section class="message--board">
-    <div class="message__User">Message from: <a href="#" id="addFriendFromChat--friendUserId--${user.id}">${user.username}</a></div> 
-    <div class="message__User" style="display: none" >${messageObj.userId}</div> 
-    <div class="message__Text">${messageObj.text}</div> 
-    
-    <button class="button__deleteChatMessage" id='messageDelete--${ messageObj.id }'>Delete</button>
-    <button class="button__editChatMessage" id="editMessage--${ messageObj.id }">Edit</button>
+        <div class="message--content">
+            <div class="message__User">Message from: <a href="#" id="addFriendFromChat--friendUserId--${user.id}">${user.username}</a></div> 
+            <div class="message__User" style="display: none" >${messageObj.userId}</div> 
+            <div class="message__Text">${messageObj.text}</div> 
+        </div>
+
+        <div class="message--buttons">
+            <button class="button__deleteChatMessage" id='messageDelete--${ messageObj.id }'>Delete</button>
+            <button class="button__editChatMessage" id="editMessage--${ messageObj.id }">Edit</button>
+        </div>
     </section>
     `
 }

@@ -1,5 +1,6 @@
 import { messageList } from "./publicChatList.js"
 import { saveMessage, editMessages, useMessages } from "./publicChatProvider.js"
+import { dispatchStateChangeEvent } from "./publicChatProvider.js";
 
 
 const contentTarget = document.querySelector(".publicChat--container")
@@ -59,6 +60,7 @@ const sendMessage = () => {
             }
             saveMessage(newMessage)
             messageList()
+
         } else {
             const editedMessage = {
                 text: messageText.value,

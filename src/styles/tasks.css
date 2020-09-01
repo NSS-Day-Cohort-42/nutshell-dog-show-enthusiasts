@@ -7,9 +7,14 @@
     border-radius: 20px;
     overflow-y: auto;
     margin: 15px;
+    padding: 2rem;
 }
 
 #taskCreationForm { 
     display: flex;
     flex-direction: column;
+}
+
+.card__task {
+    margin: 5%;
 }

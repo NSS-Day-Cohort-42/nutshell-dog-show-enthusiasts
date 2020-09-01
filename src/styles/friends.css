@@ -7,6 +7,7 @@
     border: 1px solid black;
     overflow-y: auto;
     margin: 15px;
+    padding: 2rem;
 }
 
 .friends--list {
@@ -19,16 +20,21 @@
 }
 
 .friends--addFriend {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 0 0 0;
 }
 
 .button__addFriend,
 .button__saveFriend,
 .button__deleteFriend,
 .button__startChat {
-    display: flex;
-    justify-content: center;
-    margin-left: 8.9rem;
+    height: fit-content;
+    margin: 0 5px 0 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* margin-left: 8.9rem; */
     box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #b0b0b0 5%, #f6f6f6 100%);
 	background-color:#b0b0b0;
