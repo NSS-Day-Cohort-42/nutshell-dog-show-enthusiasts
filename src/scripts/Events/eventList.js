@@ -40,7 +40,7 @@ export const render = (events) => {
         .filter(event => event.userId === parseInt(activeUser))
             if(eventsPerId.length >= 1) {
                 const first = eventsPerId.pop()
-                console.log(first)
+                
                 const html = eventRender(first)
                 contentTarget.innerHTML = html
                 const restOfEvents = eventsPerId.reverse().map(values => {
