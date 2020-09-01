@@ -11,7 +11,7 @@ import {getTasks, useTasks} from "./taskProvider.js"
 
 const eventHub = document.querySelector(".container")
 
-const contentTarget = document.querySelector(".tasks--container")
+const contentTarget = document.querySelector(".tasksCreate")
 
 eventHub.addEventListener("taskFormClicked", ()=> {
     TaskForm()

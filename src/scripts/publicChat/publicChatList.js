@@ -41,7 +41,12 @@ const render = (messageArr, usersArr) => {
             return messagesHTMLConverter(currentmessage, authorUserObject)
             }  
         ).join("")
-    contentTarget.innerHTML = allMessagesHtml
+    contentTarget.innerHTML = `
+        <h1 class="dashboardHeaders">Public Chat</h1>
+            <article id="publicChatList">
+            ${allMessagesHtml}
+            </article> 
+    `   
 }
 
 eventHub.addEventListener("messageStateChanged", CustomEvent => {

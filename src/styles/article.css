@@ -6,6 +6,12 @@
     border-radius: 20px;
     height: 30rem;
     overflow-y: auto;
+    margin: 15px;
+    padding: 2rem;
+}
+
+.article--dashboard {
+    margin: 2%;
 }
 
 .articleList { 
@@ -30,6 +36,10 @@
     justify-content: center;
 }
 .article__url{ 
+    display: flex;
+    justify-content: center;
+}
+.article__date {
     display: flex;
     justify-content: center;
 }

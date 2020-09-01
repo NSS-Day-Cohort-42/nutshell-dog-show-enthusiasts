@@ -3,7 +3,7 @@ let publicChats = []
 const eventHub = document.querySelector(".container")
 
 
-const dispatchStateChangeEvent = () => {
+export const dispatchStateChangeEvent = () => {
     const messageStateChangedEvent = new CustomEvent("messageStateChanged")
 
     eventHub.dispatchEvent(messageStateChangedEvent)

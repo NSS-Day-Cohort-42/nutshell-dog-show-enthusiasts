@@ -13,21 +13,21 @@ const render = (allUsers, allRelationships) => {
     
     const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
     const filteredRelationships = allRelationships.filter(relationship => relationship.userId === currentUserId)
-    // console.log("filteredRelationships >>",filteredRelationships)
+    // console.log("filteredRelationships",filteredRelationships)
 
     let htmlRepresentations = "Start adding friends below!"
 
     if (filteredRelationships.length > 0) {
         htmlRepresentations = filteredRelationships.map(relationship => {
             const friendObj = allUsers.find(user => user.id === relationship.friendUserId)
-            // console.log("friendObj >>",friendObj)
+            // console.log("friendObj",friendObj)
             
             return friendHTMLConverter(relationship,friendObj)
         }).join("")
     }
 
     contentTarget.innerHTML = `
-        <h2>Friends</h2>
+        <h1 class="dashboardHeaders">Friends</h1>
             <article id="friendList">
             ${htmlRepresentations}
             </article> 
